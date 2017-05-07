@@ -1,0 +1,6 @@
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.deps.json
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.runtimeconfig.json
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.runtimeconfig.dev.json
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.csprojResolveAssemblyReference.cache
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.AssemblyInfo.cs

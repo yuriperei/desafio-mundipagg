@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using DesafioMundiPagg.Infra.Data.Contexts;
+using ContosoUniversity.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioMundiPagg.Service.WebApi
 {
@@ -28,6 +31,9 @@ namespace DesafioMundiPagg.Service.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddDbContext<EntitiesDbContext>(options =>
+             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddMvc();
         }
 
