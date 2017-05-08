@@ -7,14 +7,14 @@ namespace DesafioMundiPagg.Domain.Entities
 {
     public class Item
     {
-        public int IdItem { get; set; }
+        public int ItemId { get; set; }
         public string Titulo { get; set; }
         public TipoItem TipoItem { get; set; }
         public bool IsEmprestado { get; set; }
 
         #region Foreing Key
-        public int IdLocalizacao { get; set; }
-        public int IdEmprestimo { get; set; }
+        public int LocalizacaoId { get; set; }
+        public int EmprestimoId { get; set; }
         #endregion
 
         #region Virtual 

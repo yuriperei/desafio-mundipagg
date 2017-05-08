@@ -2,7 +2,7 @@
 {
     public class Contato
     {
-        public int IdContato { get; set; }
+        public int ContatoId { get; set; }
         public string Valor { get; set; }
         public string Tipo { get; set; }
     }

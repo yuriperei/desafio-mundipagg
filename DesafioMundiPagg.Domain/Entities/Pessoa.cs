@@ -4,11 +4,11 @@ namespace DesafioMundiPagg.Domain.Entities
 {
     public class Pessoa
     {
-        public int IdPessoa { get; set; }
+        public int PessoaId { get; set; }
         public string Nome { get; set; }
 
         #region Foreing Key
-        public int IdLocalizacao { get; set; }
+        public int LocalizacaoId { get; set; }
         #endregion
 
         #region Virual
