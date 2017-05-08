@@ -7,11 +7,16 @@ using System.Text;
 
 namespace DesafioMundiPagg.Infra.Data.Mappings.Entities
 {
-    public class ItemMapping : IEntityMappingConfiguration<Item>
+    public class PessoaMapping : IEntityMappingConfiguration<Pessoa>
     {
-        public void Map(EntityTypeBuilder<Item> builder)
+        public void Map(EntityTypeBuilder<Pessoa> builder)
         {
-            builder.ToTable("Item");
+            builder.ToTable("Pessoa");
+            builder.HasKey(p => p.PessoaId);
+
+            builder.HasOne(p => p.Localizacao);
+
+
             //builder.ToTable("User");
             //builder.HasKey(m => m.Id);
             //builder.Property(m => m.Id).HasColumnName("UserId");

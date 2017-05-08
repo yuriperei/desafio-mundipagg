@@ -7,11 +7,11 @@ using System.Text;
 
 namespace DesafioMundiPagg.Infra.Data.Mappings.Entities
 {
-    public class ItemMapping : IEntityMappingConfiguration<Item>
+    class LocalizacaoMapping : IEntityMappingConfiguration<Localizacao>
     {
-        public void Map(EntityTypeBuilder<Item> builder)
+        public void Map(EntityTypeBuilder<Localizacao> builder)
         {
-            builder.ToTable("Item");
+            builder.ToTable("Localizacao");
             //builder.ToTable("User");
             //builder.HasKey(m => m.Id);
             //builder.Property(m => m.Id).HasColumnName("UserId");
