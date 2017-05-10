@@ -1,9 +1,9 @@
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.deps.json
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.dll
-C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.csprojResolveAssemblyReference.cache
-C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.AssemblyInfo.cs
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.pdb
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.dll
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.csprojResolveAssemblyReference.cache
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.AssemblyInfo.cs
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.dll
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.Data\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.pdb
