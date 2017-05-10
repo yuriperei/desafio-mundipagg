@@ -7,15 +7,9 @@ namespace DesafioMundiPagg.Domain.Interfaces.Repositories
     public interface IRepositoryBase<T> where T : class
     {
         IEnumerable<T> ObterTodos();
-
-        T ObterPorId(int? id);
-
-        void Adicionar(T entity);
-
-        void Alterar(T entity);
-
-        void Remover(T entity);
-
-        void Remover(int? id);
+        T ObterPorId(string id);
+        void Adicionar(T entity, string id);
+        void Alterar(T entity, string id);
+        void Remover(string id);
     }
 }
