@@ -1,7 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ElasticsearchCRUD" Version="2.4.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.0-preview1-final" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DesafioMundiPagg.Application\DesafioMundiPagg.Application.csproj" />
+    <ProjectReference Include="..\DesafioMundiPagg.Infra.Data\DesafioMundiPagg.Infra.Data.csproj" />
+  </ItemGroup>
 
 </Project>

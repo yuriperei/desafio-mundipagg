@@ -4,18 +4,18 @@ namespace DesafioMundiPagg.Domain.Entities
 {
     public class Emprestimo
     {
-        public int IdEmprestimo { get; set; }
+        public string EmprestimoId { get; set; }
         public DateTime DateDevolucao { get; set; }
         public DateTime DataEmprestimo { get; set; }
 
         #region Foreing Key
-        public int IdItem { get; set; }
-        public int IdPessoa { get; set; }
+        public string ItemId { get; set; }
+        public string PessoaId { get; set; }
         #endregion
 
-        #region Virual
-        public virtual Item Item { get; set; }
-        public virtual Pessoa Pessoa { get; set; }
+        #region Navigation
+        public Item Item { get; set; }
+        public Pessoa Pessoa { get; set; }
         #endregion
     }
 }

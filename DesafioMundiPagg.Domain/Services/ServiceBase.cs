@@ -15,17 +15,17 @@ namespace DesafioMundiPagg.Domain.Services
             _repositoryBase = repositoryBase;
         }
 
-        public void Adicionar(T entity)
+        public void Adicionar(T entity, string id)
         {
-            _repositoryBase.Adicionar(entity);
+            _repositoryBase.Adicionar(entity, id);
         }
 
-        public void Alterar(T entity)
+        public void Alterar(T entity, string id)
         {
-            _repositoryBase.Alterar(entity);
+            _repositoryBase.Alterar(entity, id);
         }
 
-        public T ObterPorId(int? id)
+        public T ObterPorId(string id)
         {
             return _repositoryBase.ObterPorId(id);
         }
@@ -35,14 +35,9 @@ namespace DesafioMundiPagg.Domain.Services
             return _repositoryBase.ObterTodos();
         }
 
-        public void Remover(int? id)
+        public void Remover(string id)
         {
             _repositoryBase.Remover(id);
-        }
-
-        public void Remover(T entity)
-        {
-            _repositoryBase.Remover(entity);
         }
     }
 }

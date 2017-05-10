@@ -2,5 +2,16 @@ C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\b
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.runtimeconfig.json
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.runtimeconfig.dev.json
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Application.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.CrossCutting.IoC.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Application.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.CrossCutting.IoC.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.pdb
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.csprojResolveAssemblyReference.cache
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.AssemblyInfo.cs
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Service.WebApi\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Service.WebApi.pdb
