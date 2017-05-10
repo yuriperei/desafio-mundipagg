@@ -1,6 +1,12 @@
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.CrossCutting.IoC.deps.json
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.CrossCutting.IoC.dll
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.CrossCutting.IoC.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Application.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Application.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.Data.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.pdb
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.CrossCutting.IoC.csprojResolveAssemblyReference.cache
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.CrossCutting.IoC.AssemblyInfo.cs
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Infra.CrossCutting.IoC\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Infra.CrossCutting.IoC.dll
