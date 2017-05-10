@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "desafiomundipagg.application/1.0.0": {
+        "dependencies": {
+          "DesafioMundiPagg.Domain": "1.0.0"
+        },
         "runtime": {
           "DesafioMundiPagg.Application.dll": {}
+        }
+      },
+      "desafiomundipagg.domain/1.0.0": {
+        "runtime": {
+          "DesafioMundiPagg.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
     "desafiomundipagg.application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "desafiomundipagg.domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
