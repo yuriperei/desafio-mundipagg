@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DesafioMundiPagg.Application.AutoMapper.MappingProfiles;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,8 +12,8 @@ namespace DesafioMundiPagg.Application.AutoMapper
         {
             Mapper.Initialize(c =>
             {
-                c.AddProfile<DomainToViewModelMappingProfile>();
-                c.AddProfile<ViewModelToDomainMappingProfile>();
+                c.AddProfile<DomainToDTOMappingProfile>();
+                c.AddProfile<DTOToDomainMappingProfile>();
             });
         }
     }
