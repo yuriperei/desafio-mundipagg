@@ -44,8 +44,16 @@ namespace DesafioMundiPagg.Infra.Data.Repository
 
         public IEnumerable<T> ObterTodos()
         {
-            var results = _provider.Context().Search<T>("");
-            return results.PayloadResult.Hits.HitsResult.Select(t => t.Source);
+            try
+            {
+                var results = _provider.Context().Search<T>("");
+                return results.PayloadResult.Hits.HitsResult.Select(t => t.Source);
+            }
+            catch
+            {
+                return null;
+            }
+            
         }
 
         public void Remover(string id)
