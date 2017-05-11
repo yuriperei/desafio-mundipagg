@@ -23,12 +23,15 @@ namespace DesafioMundiPagg.Infra.CrossCutting.IoC
 
             //Repository Dependencies
             services.AddSingleton<IItemRepository, ItemRepository>();
+            services.AddSingleton<IContatoRepository, ContatoRepository>();
 
             //Application Services Dependencies
             services.AddSingleton<IItemAppService, ItemAppService>();
+            services.AddSingleton<IContatoAppService, ContatoAppService>();
 
             //Domain Services Dependencies
             services.AddSingleton<IItemService, ItemService>();
+            services.AddSingleton<IContatoService, ContatoService>();
         }
     }
 }
