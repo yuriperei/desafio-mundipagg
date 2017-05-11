@@ -2,7 +2,7 @@
 {
     public class Localizacao
     {
-        public int LocalizacaoId { get; set; }
+        public string LocalizacaoId { get; set; }
         public string Nome { get; set; }
         public string Endereco { get; set; }
         public string Cidade { get; set; }

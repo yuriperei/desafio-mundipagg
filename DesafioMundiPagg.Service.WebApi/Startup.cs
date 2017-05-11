@@ -7,8 +7,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using DesafioMundiPagg.Infra.Data.Contexts;
-using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
+using DesafioMundiPagg.Infra.CrossCutting.IoC;
+using ElasticsearchCRUD;
+using DesafioMundiPagg.Domain.Interfaces.Repositories;
+using DesafioMundiPagg.Infra.Data.Repository;
+using DesafioMundiPagg.Infra.Data;
+using DesafioMundiPagg.Domain.Interfaces.Services;
+using DesafioMundiPagg.Application.Interfaces.AppServices;
+using DesafioMundiPagg.Application.AppServices;
+using DesafioMundiPagg.Domain.Services;
 
 namespace DesafioMundiPagg.Service.WebApi
 {
@@ -30,10 +38,10 @@ namespace DesafioMundiPagg.Service.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddDbContext<EntitiesDbContext>(options =>
-             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddMvc().AddJsonOptions(a => a.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
-            services.AddMvc();
+            //Registrar IoC
+            StartupIoC.RegisterIoC(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DesafioMundiPagg.Domain\DesafioMundiPagg.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
