@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DesafioMundiPagg.Application.DTOs;
 using DesafioMundiPagg.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace DesafioMundiPagg.Application.AutoMapper.MappingProfiles
     {
         public DomainToDTOMappingProfile()
         {
-            
+            CreateMap<Item, ItemDTO>();
         }
     }
 }
