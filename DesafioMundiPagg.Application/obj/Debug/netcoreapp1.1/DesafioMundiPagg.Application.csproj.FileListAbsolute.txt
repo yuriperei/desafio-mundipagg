@@ -1,3 +1,6 @@
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Application.deps.json
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Application.csprojResolveAssemblyReference.cache
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Application.AssemblyInfo.cs
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Application.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.pdb

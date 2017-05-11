@@ -1,4 +1,6 @@
-﻿using DesafioMundiPagg.Application.Interfaces.AppServices;
+﻿using AutoMapper;
+using DesafioMundiPagg.Application.DTOs;
+using DesafioMundiPagg.Application.Interfaces.AppServices;
 using DesafioMundiPagg.Domain.Entities;
 using DesafioMundiPagg.Domain.Interfaces.Services;
 using DesafioMundiPagg.Domain.Services;
@@ -17,30 +19,54 @@ namespace DesafioMundiPagg.Application.AppServices
             _itemService = itemService;
         }
 
-        public void Adicionar(Item item)
+        public void Adicionar(ItemDTO itemDto)
         {
-            item.ItemId = UtilService.GerarID();
-            _itemService.Adicionar(item, item.ItemId);
+            itemDto.ItemId = UtilService.GerarID();
+            var itemDomain = MapToDomain(itemDto); 
+            _itemService.Adicionar(itemDomain, itemDomain.ItemId);
         }
 
-        public void Alterar(Item item)
+        public void Alterar(ItemDTO itemDto)
         {
-            _itemService.Alterar(item, item.ItemId);
+            var itemDomain = MapToDomain(itemDto);
+            _itemService.Alterar(itemDomain, itemDomain.ItemId);
         }
 
-        public Item ObterPorId(string id)
+        public ItemDTO ObterPorId(string id)
         {
-            return _itemService.ObterPorId(id);
+            var itemDomain = _itemService.ObterPorId(id);
+            return MapToDTO(itemDomain);
         }
 
-        public IEnumerable<Item> ObterTodos()
+        public IEnumerable<ItemDTO> ObterTodos()
         {
-            return _itemService.ObterTodos();
+            var itensDomain = _itemService.ObterTodos();
+            return MapToDTOList(itensDomain);
         }
 
         public void Remover(string id)
         {
             _itemService.Remover(id);
+        }
+
+        private Item MapToDomain(ItemDTO dto)
+        {
+            return Mapper.Map<Item>(dto);
+        }
+
+        private ItemDTO MapToDTO(Item domain)
+        {
+            return Mapper.Map<ItemDTO>(domain);
+        }
+
+        private IEnumerable<Item> MapToDomainList(IEnumerable<ItemDTO> dto)
+        {
+            return Mapper.Map<IEnumerable<Item>>(dto);
+        }
+
+        private IEnumerable<ItemDTO> MapToDTOList(IEnumerable<Item> domain)
+        {
+            return Mapper.Map<IEnumerable<ItemDTO>>(domain);
         }
     }
 }

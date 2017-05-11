@@ -1,4 +1,6 @@
 ﻿using DesafioMundiPagg.Domain.Enum;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +11,7 @@ namespace DesafioMundiPagg.Application.DTOs
     {
         public string ItemId { get; set; }
         public string Titulo { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public TipoItem TipoItem { get; set; }
         public bool IsEmprestado { get; set; }
     }
