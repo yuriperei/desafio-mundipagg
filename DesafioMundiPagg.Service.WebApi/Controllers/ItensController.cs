@@ -5,6 +5,8 @@ using DesafioMundiPagg.Application.Interfaces.AppServices;
 using DesafioMundiPagg.Domain.Interfaces.Services;
 using DesafioMundiPagg.Application.AppServices;
 using DesafioMundiPagg.Application.DTOs;
+using Microsoft.Extensions.Logging;
+using DesafioMundiPagg.Infra.CrossCutting.Logger;
 
 namespace DesafioMundiPagg.Service.WebApi.Controllers
 {
@@ -12,26 +14,31 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
     public class ItensController : Controller
     {
         private readonly IItemAppService _itemAppService;
+        private readonly ILogger _logger;
 
-        public ItensController(IItemAppService itemAppService)
+        public ItensController(IItemAppService itemAppService, ILogger<ItensController> logger)
         {
             _itemAppService = itemAppService;
+            _logger = logger;
         }
 
         // GET api/itens
         [HttpGet]
         public IEnumerable<ItemDTO> Get()
         {
+            _logger.LogInformation(LoggingEvents.LISTAR, "Listando todos os itens");
             return _itemAppService.ObterTodos();
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            var item = _itemAppService.ObterPorId(id);
+            _logger.LogInformation(LoggingEvents.OBTER_POR_ID, "Obter item {ID}", id);
 
+            var item = _itemAppService.ObterPorId(id);
             if (item == null)
             {
+                _logger.LogWarning(LoggingEvents.OBTER_POR_ID_NOTFOUND, "Get({ID}) NOT FOUND", id);
                 return NotFound();
             }
             return new ObjectResult(item);
@@ -44,6 +51,7 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
             if (ModelState.IsValid)
             {
                 _itemAppService.Adicionar(item);
+                _logger.LogInformation(LoggingEvents.ADICIONA, "Item {ID} adicionado", item.ItemId);
                 string url = $"api/itens/{item.ItemId}";
                 return Created(url, item);
             }
@@ -62,9 +70,12 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
             var entity = _itemAppService.ObterPorId(id);
             if (entity == null)
             {
+                _logger.LogWarning(LoggingEvents.OBTER_POR_ID_NOTFOUND, "Put({ID}) NOT FOUND", id);
                 return NotFound();
             }
+
             _itemAppService.Alterar(item);
+            _logger.LogInformation(LoggingEvents.ATUALIZAR, "Item {ID} Atualizado", id);
             return new NoContentResult();
         }
 
@@ -75,10 +86,13 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
             var entity = _itemAppService.ObterPorId(id);
             if (entity == null)
             {
+                _logger.LogWarning(LoggingEvents.OBTER_POR_ID_NOTFOUND, "Delete({ID}) NOT FOUND", id);
                 return NotFound();
             }
             _itemAppService.Remover(id);
-            return new NoContentResult();
+            _logger.LogInformation(LoggingEvents.REMOVER, "Item {ID} Deletado", id);
+
+            return new OkResult();
         }
     }
 }
