@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "ecb52e1aeafcb71c18a8fbbb24c4f613c1acbc91"
+    "signature": "016a9ca1b79cf4040b201769ff722de52d336d8a"
   },
   "compilationOptions": {},
   "targets": {
@@ -17,6 +17,15 @@
           "DesafioMundiPagg.Infra.CrossCutting.IoC.dll": {}
         }
       },
+      "automapper/6.0.2": {
+        "dependencies": {
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/AutoMapper.dll": {}
+        }
+      },
       "elasticsearch.net/5.3.1": {
         "dependencies": {
           "System.Collections.Specialized": "4.3.0",
@@ -29,7 +38,7 @@
       },
       "elasticsearchcrud/2.4.1.1": {
         "dependencies": {
-          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json": "10.0.2",
           "System.Diagnostics.TraceSource": "4.0.0"
         },
         "runtime": {
@@ -52,14 +61,14 @@
       "nest/5.3.1": {
         "dependencies": {
           "Elasticsearch.Net": "5.3.1",
-          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json": "10.0.2",
           "System.Collections.Specialized": "4.3.0"
         },
         "runtime": {
           "lib/netstandard1.3/Nest.dll": {}
         }
       },
-      "newtonsoft.json/10.0.1": {
+      "newtonsoft.json/10.0.2": {
         "dependencies": {
           "System.ComponentModel.TypeConverter": "4.3.0",
           "System.Runtime.Serialization.Formatters": "4.3.0",
@@ -130,7 +139,9 @@
       },
       "desafiomundipagg.application/1.0.0": {
         "dependencies": {
-          "DesafioMundiPagg.Domain": "1.0.0"
+          "AutoMapper": "6.0.2",
+          "DesafioMundiPagg.Domain": "1.0.0",
+          "Newtonsoft.Json": "10.0.2"
         },
         "runtime": {
           "DesafioMundiPagg.Application.dll": {}
@@ -158,6 +169,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "automapper/6.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uI4uPyibgP4+2zn21fVqy0ep+eYeB5IcfjanyUESj+F0qcrOYpAW4iH2+xKET0vfhgJn4U1c4xN3stKUhygTmQ==",
+      "path": "automapper/6.0.2",
+      "hashPath": "automapper.6.0.2.nupkg.sha512"
     },
     "elasticsearch.net/5.3.1": {
       "type": "package",
@@ -194,12 +212,12 @@
       "path": "nest/5.3.1",
       "hashPath": "nest.5.3.1.nupkg.sha512"
     },
-    "newtonsoft.json/10.0.1": {
+    "newtonsoft.json/10.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ebWzW9j2nwxQeBo59As2TYn7nYr9BHicqqCwHOD1Vdo+50HBtLPuqdiCYJcLdTRknpYis/DSEOQz5KmZxwrIAg==",
-      "path": "newtonsoft.json/10.0.1",
-      "hashPath": "newtonsoft.json.10.0.1.nupkg.sha512"
+      "sha512": "sha512-iwElSU2IXmwGvytJsezyDML2ZWDkG2JzTYzlU/BNlmzMdlmRvbnwITsGGY74gwVEpDli1UdOLkMT7/3jxWvXzA==",
+      "path": "newtonsoft.json/10.0.2",
+      "hashPath": "newtonsoft.json.10.0.2.nupkg.sha512"
     },
     "system.collections.nongeneric/4.3.0": {
       "type": "package",

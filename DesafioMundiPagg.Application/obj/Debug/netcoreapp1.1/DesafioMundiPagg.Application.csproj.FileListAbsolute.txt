@@ -4,3 +4,6 @@ C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\obj\
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Application.dll
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.dll
 C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Domain.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\bin\Debug\netcoreapp1.1\DesafioMundiPagg.Application.pdb
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Application.dll
+C:\desafio-mundipagg\DesafioMundiPagg.Solution\DesafioMundiPagg.Application\obj\Debug\netcoreapp1.1\DesafioMundiPagg.Application.pdb
