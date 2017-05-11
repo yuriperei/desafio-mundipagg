@@ -26,10 +26,17 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // GET api/contatos
         [HttpGet]
-        public IEnumerable<ContatoDTO> Get()
+        public IActionResult Get()
         {
             _logger.LogInformation(LoggingEvents.LISTAR, "Listando todos os contatos");
-            return _contatoAppService.ObterTodos();
+            var contatos = _contatoAppService.ObterTodos();
+            if (contatos == null)
+            {
+                _logger.LogWarning(LoggingEvents.LISTAR_NOTFOUND, "Get() NOT FOUND");
+                return NotFound();
+            }
+
+            return new ObjectResult(contatos);
         }
 
         [HttpGet("{id}")]

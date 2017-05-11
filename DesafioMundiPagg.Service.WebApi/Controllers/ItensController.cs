@@ -24,10 +24,17 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // GET api/itens
         [HttpGet]
-        public IEnumerable<ItemDTO> Get()
+        public IActionResult Get()
         {
             _logger.LogInformation(LoggingEvents.LISTAR, "Listando todos os itens");
-            return _itemAppService.ObterTodos();
+            var itens = _itemAppService.ObterTodos();
+            if(itens == null)
+            {
+                _logger.LogWarning(LoggingEvents.LISTAR_NOTFOUND, "Get() NOT FOUND");
+                return NotFound();
+            }
+
+            return new ObjectResult(itens);
         }
 
         [HttpGet("{id}")]

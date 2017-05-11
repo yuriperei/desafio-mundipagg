@@ -26,10 +26,17 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // GET api/pessoas
         [HttpGet]
-        public IEnumerable<PessoaDTO> Get()
+        public IActionResult Get()
         {
             _logger.LogInformation(LoggingEvents.LISTAR, "Listando todas as pessoas");
-            return _pessoaAppService.ObterTodos();
+            var pessoas = _pessoaAppService.ObterTodos();
+            if (pessoas == null)
+            {
+                _logger.LogWarning(LoggingEvents.LISTAR_NOTFOUND, "Get() NOT FOUND");
+                return NotFound();
+            }
+
+            return new ObjectResult(pessoas);
         }
 
         [HttpGet("{id}")]

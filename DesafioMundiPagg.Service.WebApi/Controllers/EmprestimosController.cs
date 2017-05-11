@@ -26,10 +26,17 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // GET api/emprestimos
         [HttpGet]
-        public IEnumerable<ItemDTO> Get()
+        public IActionResult Get()
         {
             _logger.LogInformation(LoggingEvents.LISTAR, "Listando todos os emprestimos");
-            return _emprestimoAppService.ObterTodos();
+            var emprestimos = _emprestimoAppService.ObterTodos();
+            if (emprestimos == null)
+            {
+                _logger.LogWarning(LoggingEvents.LISTAR_NOTFOUND, "Get() NOT FOUND");
+                return NotFound();
+            }
+
+            return new ObjectResult(emprestimos);
         }
 
         [HttpGet("{id}")]

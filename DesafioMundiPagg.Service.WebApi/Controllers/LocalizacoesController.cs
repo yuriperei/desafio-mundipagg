@@ -26,10 +26,17 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // GET api/localizacoes
         [HttpGet]
-        public IEnumerable<LocalizacaoDTO> Get()
+        public IActionResult Get()
         {
             _logger.LogInformation(LoggingEvents.LISTAR, "Listando todas as localizações");
-            return _localizacaoAppService.ObterTodos();
+            var localizacoes = _localizacaoAppService.ObterTodos();
+            if (localizacoes == null)
+            {
+                _logger.LogWarning(LoggingEvents.LISTAR_NOTFOUND, "Get() NOT FOUND");
+                return NotFound();
+            }
+
+            return new ObjectResult(localizacoes);
         }
 
         [HttpGet("{id}")]
