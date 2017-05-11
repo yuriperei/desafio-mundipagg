@@ -11,5 +11,6 @@ namespace DesafioMundiPagg.Infra.CrossCutting.Logger
         public const int REMOVER = 1004;
 
         public const int OBTER_POR_ID_NOTFOUND = 4000;
+        public const int LISTAR_NOTFOUND = 4001;
     }
 }

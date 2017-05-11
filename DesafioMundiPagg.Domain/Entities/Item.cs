@@ -19,7 +19,7 @@ namespace DesafioMundiPagg.Domain.Entities
 
         #region Navigation 
         public Localizacao Localizacao { get; set; }
-        public IEnumerable<Emprestimo> Emprestimo { get; set; }
+        public IEnumerable<Emprestimo> Emprestimos { get; set; }
         #endregion
     }
 }

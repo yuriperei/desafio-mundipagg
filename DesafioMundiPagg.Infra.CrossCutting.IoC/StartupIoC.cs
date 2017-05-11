@@ -7,6 +7,7 @@ using DesafioMundiPagg.Infra.Data;
 using DesafioMundiPagg.Infra.Data.Repository;
 using ElasticsearchCRUD;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;

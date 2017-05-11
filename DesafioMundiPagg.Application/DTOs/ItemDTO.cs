@@ -17,7 +17,7 @@ namespace DesafioMundiPagg.Application.DTOs
 
         #region Navigation 
         public LocalizacaoDTO Localizacao { get; set; }
-        public IEnumerable<EmprestimoDTO> Emprestimo { get; set; }
+        public IEnumerable<EmprestimoDTO> Emprestimos { get; set; }
         #endregion
     }
 }
