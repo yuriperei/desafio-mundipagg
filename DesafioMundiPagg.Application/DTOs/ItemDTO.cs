@@ -14,5 +14,10 @@ namespace DesafioMundiPagg.Application.DTOs
         [JsonConverter(typeof(StringEnumConverter))]
         public TipoItem TipoItem { get; set; }
         public bool IsEmprestado { get; set; }
+
+        #region Navigation 
+        public LocalizacaoDTO Localizacao { get; set; }
+        public IEnumerable<EmprestimoDTO> Emprestimo { get; set; }
+        #endregion
     }
 }
