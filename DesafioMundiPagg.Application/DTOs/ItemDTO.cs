@@ -1,25 +1,23 @@
 ﻿using DesafioMundiPagg.Domain.Enum;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DesafioMundiPagg.Domain.Entities
+namespace DesafioMundiPagg.Application.DTOs
 {
-    public class Item
+    public class ItemDTO
     {
         public string ItemId { get; set; }
         public string Titulo { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public TipoItem TipoItem { get; set; }
         public bool IsEmprestado { get; set; }
 
-        #region Foreing Key
-        //public string LocalizacaoId { get; set; }
-        //public string EmprestimoId { get; set; }
-        #endregion
-
         #region Navigation 
-        public Localizacao Localizacao { get; set; }
-        public IEnumerable<Emprestimo> Emprestimos { get; set; }
+        public LocalizacaoDTO Localizacao { get; set; }
+        public IEnumerable<EmprestimoDTO> Emprestimos { get; set; }
         #endregion
     }
 }

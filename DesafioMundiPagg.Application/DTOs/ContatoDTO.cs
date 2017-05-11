@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace DesafioMundiPagg.Domain.Entities
+namespace DesafioMundiPagg.Application.DTOs
 {
-    public class Contato
+    public class ContatoDTO
     {
         public string ContatoId { get; set; }
         public string Valor { get; set; }

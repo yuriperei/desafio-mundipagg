@@ -25,6 +25,7 @@
     <ProjectReference Include="..\DesafioMundiPagg.Application\DesafioMundiPagg.Application.csproj" />
     <ProjectReference Include="..\DesafioMundiPagg.Domain\DesafioMundiPagg.Domain.csproj" />
     <ProjectReference Include="..\DesafioMundiPagg.Infra.CrossCutting.IoC\DesafioMundiPagg.Infra.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\DesafioMundiPagg.Infra.CrossCutting.Logger\DesafioMundiPagg.Infra.CrossCutting.Logger.csproj" />
   </ItemGroup>
 
 </Project>

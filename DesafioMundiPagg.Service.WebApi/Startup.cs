@@ -17,6 +17,7 @@ using DesafioMundiPagg.Domain.Interfaces.Services;
 using DesafioMundiPagg.Application.Interfaces.AppServices;
 using DesafioMundiPagg.Application.AppServices;
 using DesafioMundiPagg.Domain.Services;
+using DesafioMundiPagg.Application.AutoMapper;
 
 namespace DesafioMundiPagg.Service.WebApi
 {
@@ -30,6 +31,8 @@ namespace DesafioMundiPagg.Service.WebApi
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            AutoMapperConfig.RegisterMappings();
         }
 
         public IConfigurationRoot Configuration { get; }

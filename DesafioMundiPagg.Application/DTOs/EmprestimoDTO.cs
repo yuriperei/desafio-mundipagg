@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace DesafioMundiPagg.Domain.Entities
+namespace DesafioMundiPagg.Application.DTOs
 {
-    public class Emprestimo
+    public class EmprestimoDTO
     {
         public string EmprestimoId { get; set; }
         public DateTime DateDevolucao { get; set; }
@@ -14,8 +17,9 @@ namespace DesafioMundiPagg.Domain.Entities
         #endregion
 
         #region Navigation
-        public Item Item { get; set; }
-        public Pessoa Pessoa { get; set; }
+        [JsonIgnore]
+        public ItemDTO Item { get; set; }
+        public PessoaDTO Pessoa { get; set; }
         #endregion
     }
 }
