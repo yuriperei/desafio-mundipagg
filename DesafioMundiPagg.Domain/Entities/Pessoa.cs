@@ -9,7 +9,7 @@ namespace DesafioMundiPagg.Domain.Entities
         public string Nome { get; set; }
 
         #region Foreing Key
-        public string LocalizacaoId { get; set; }
+        //public string LocalizacaoId { get; set; }
         #endregion
 
         #region Navigation

@@ -13,8 +13,8 @@ namespace DesafioMundiPagg.Domain.Entities
         public bool IsEmprestado { get; set; }
 
         #region Foreing Key
-        public string LocalizacaoId { get; set; }
-        public string EmprestimoId { get; set; }
+        //public string LocalizacaoId { get; set; }
+        //public string EmprestimoId { get; set; }
         #endregion
 
         #region Navigation 
