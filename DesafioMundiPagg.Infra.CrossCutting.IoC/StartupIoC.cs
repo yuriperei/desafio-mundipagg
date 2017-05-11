@@ -22,13 +22,13 @@ namespace DesafioMundiPagg.Infra.CrossCutting.IoC
             services.AddSingleton<ElasticSearchProvider>();
 
             //Repository Dependencies
-            services.AddTransient<IItemRepository, ItemRepository>();
+            services.AddSingleton<IItemRepository, ItemRepository>();
 
             //Application Services Dependencies
-            services.AddTransient<IItemAppService, ItemAppService>();
+            services.AddSingleton<IItemAppService, ItemAppService>();
 
             //Domain Services Dependencies
-            services.AddTransient<IItemService, ItemService>();
+            services.AddSingleton<IItemService, ItemService>();
         }
     }
 }

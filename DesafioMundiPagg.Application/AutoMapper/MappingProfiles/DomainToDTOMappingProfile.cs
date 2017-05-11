@@ -11,7 +11,11 @@ namespace DesafioMundiPagg.Application.AutoMapper.MappingProfiles
     {
         public DomainToDTOMappingProfile()
         {
+            CreateMap<Contato, ContatoDTO>();
+            CreateMap<Emprestimo, EmprestimoDTO>();
             CreateMap<Item, ItemDTO>();
+            CreateMap<Localizacao, LocalizacaoDTO>();
+            CreateMap<Pessoa, PessoaDTO>();
         }
     }
 }
