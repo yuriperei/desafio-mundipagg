@@ -46,7 +46,7 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
             if (ModelState.IsValid)
             {
                 _localizacaoAppService.Adicionar(localizacao);
-                string url = $"api/localizacaos/{localizacao.LocalizacaoId}";
+                string url = $"api/localizacoes/{localizacao.LocalizacaoId}";
                 return Created(url, localizacao);
             }
 
