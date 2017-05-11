@@ -40,8 +40,8 @@ namespace DesafioMundiPagg.Application.AppServices
 
         public IEnumerable<ContatoDTO> ObterTodos()
         {
-            var itensDomain = _contatoService.ObterTodos();
-            return MapToDTOList(itensDomain);
+            var contatosDomain = _contatoService.ObterTodos();
+            return MapToDTOList(contatosDomain);
         }
 
         public void Remover(string id)
