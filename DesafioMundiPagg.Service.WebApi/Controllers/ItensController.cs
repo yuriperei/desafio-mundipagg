@@ -4,6 +4,7 @@ using DesafioMundiPagg.Domain.Entities;
 using DesafioMundiPagg.Application.Interfaces.AppServices;
 using DesafioMundiPagg.Domain.Interfaces.Services;
 using DesafioMundiPagg.Application.AppServices;
+using DesafioMundiPagg.Application.DTOs;
 
 namespace DesafioMundiPagg.Service.WebApi.Controllers
 {
@@ -19,7 +20,7 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // GET api/itens
         [HttpGet]
-        public IEnumerable<Item> Get()
+        public IEnumerable<ItemDTO> Get()
         {
             return _itemAppService.ObterTodos();
         }
@@ -38,7 +39,7 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // POST api/itens
         [HttpPost]
-        public IActionResult Post([FromBody] Item item)
+        public IActionResult Post([FromBody] ItemDTO item)
         {
             if (ModelState.IsValid)
             {
@@ -52,14 +53,14 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // PUT api/itens/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody] Item item)
+        public IActionResult Put(string id, [FromBody] ItemDTO item)
         {
             if (item == null)
             {
                 return BadRequest();
             }
-            var contactObj = _itemAppService.ObterPorId(id);
-            if (contactObj == null)
+            var entity = _itemAppService.ObterPorId(id);
+            if (entity == null)
             {
                 return NotFound();
             }
@@ -71,8 +72,8 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            var item = _itemAppService.ObterPorId(id);
-            if (item == null)
+            var entity = _itemAppService.ObterPorId(id);
+            if (entity == null)
             {
                 return NotFound();
             }
