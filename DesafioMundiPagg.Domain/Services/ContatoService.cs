@@ -11,7 +11,6 @@ namespace DesafioMundiPagg.Domain.Services
     {
         public ContatoService(IContatoRepository contatoRepository) : base(contatoRepository)
         {
-
         }
     }
 }
