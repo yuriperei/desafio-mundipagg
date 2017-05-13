@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2.2-Logger", "5.2.2-Logge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioMundiPagg.Infra.CrossCutting.Logger", "DesafioMundiPagg.Infra.CrossCutting.Logger\DesafioMundiPagg.Infra.CrossCutting.Logger.csproj", "{EA22632E-94C6-431D-B459-9A84A05627BD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioMundiPagg.Presentation", "DesafioMundiPagg.Presentation\DesafioMundiPagg.Presentation.csproj", "{BEBB9E4E-2879-4360-BB82-7E5419F9F227}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{EA22632E-94C6-431D-B459-9A84A05627BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA22632E-94C6-431D-B459-9A84A05627BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA22632E-94C6-431D-B459-9A84A05627BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEBB9E4E-2879-4360-BB82-7E5419F9F227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEBB9E4E-2879-4360-BB82-7E5419F9F227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEBB9E4E-2879-4360-BB82-7E5419F9F227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEBB9E4E-2879-4360-BB82-7E5419F9F227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,5 +84,6 @@ Global
 		{773A13F4-34CA-4390-A479-E0E56346D5C4} = {D012424F-9733-4613-82A6-647D30E405AF}
 		{4ED80CA9-BCC7-4B56-9907-304E24EDD5E5} = {7540303E-56B0-4AB4-934E-609B05FAA057}
 		{EA22632E-94C6-431D-B459-9A84A05627BD} = {4ED80CA9-BCC7-4B56-9907-304E24EDD5E5}
+		{BEBB9E4E-2879-4360-BB82-7E5419F9F227} = {C500BFEF-7954-40B6-99E1-181777DDDE48}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,86 @@
+﻿<div class="row">
+    <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+</div>
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-xs-6">
+        <a [routerLink]="['/cadastrar/item']" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Cadastrar Novo</a>
+    </div>
+
+    <div class="col-xs-2">
+        <label class="label-control">Linhas por página</label>
+        <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
+            <option [ngValue]="5">5</option>
+            <option [ngValue]="10">10</option>
+            <option [ngValue]="15">15</option>
+        </select>
+    </div>
+    <div class="col-xs-4">
+        <div class="row">
+            <label class="col-xs-12 label-control">Ordenar por:</label>
+        </div>
+        <div class="col-xs-8">
+            <div class="row">
+                <select class="form-control input-sm" [(ngModel)]="sortBy">
+                    <option ngValue="titulo">Titulo</option>
+                    <option ngValue="tipoItem">Tipo de Item</option>
+                    <option ngValue="isEmprestado">Emprestado</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <select class="form-control input-sm" [(ngModel)]="sortOrder">
+                    <option ngValue="asc">Crescente</option>
+                    <option ngValue="desc">Decrescente</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="panel panel-default">
+        <table class="table table-striped" [mfData]="data | itemFiltro : filterQuery" #mf="mfDataTable"
+               [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+            <thead>
+                <tr>
+                    <th colspan="5">
+                        Filtrar:
+                        <input class="form-control" [(ngModel)]="filterQuery" />
+                    </th>
+                </tr>
+                <tr>
+                    <th style="width: 40%">
+                        <mfDefaultSorter by="titulo">Título</mfDefaultSorter>
+                    </th>
+                    <th style="width: 10%">
+                        <mfDefaultSorter by="tipoItem">Tipo de Item</mfDefaultSorter>
+                    </th>
+                    <th style="width: 10%">
+                        <mfDefaultSorter by="isEmprestado">Emprestado</mfDefaultSorter>
+                    </th>
+                    <th style="width: 10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of mf.data">
+                    <td>{{item.titulo}}</td>
+                    <td>{{item.tipoItem}}</td>
+                    <td>{{item.isEmprestado ? 'Sim' : 'Não'}}</td>
+                    <td>
+                        <a [routerLink]="['/alterar/item', item.itemId]" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                        <button (click)="remover(item)" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    </td>
+
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

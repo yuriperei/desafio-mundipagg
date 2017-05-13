@@ -7,6 +7,7 @@ using DesafioMundiPagg.Application.AppServices;
 using DesafioMundiPagg.Application.DTOs;
 using Microsoft.Extensions.Logging;
 using DesafioMundiPagg.Infra.CrossCutting.Logger;
+using Microsoft.AspNetCore.Cors;
 
 namespace DesafioMundiPagg.Service.WebApi.Controllers
 {
