@@ -15,10 +15,10 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
     [Route("api/[controller]")]
     public class EmprestimosController : Controller
     {
-        private readonly IItemAppService _emprestimoAppService;
+        private readonly IEmprestimoAppService _emprestimoAppService;
         private readonly ILogger _logger;
 
-        public EmprestimosController(IItemAppService emprestimoAppService, ILogger<EmprestimosController> logger)
+        public EmprestimosController(IEmprestimoAppService emprestimoAppService, ILogger<EmprestimosController> logger)
         {
             _emprestimoAppService = emprestimoAppService;
             _logger = logger;
