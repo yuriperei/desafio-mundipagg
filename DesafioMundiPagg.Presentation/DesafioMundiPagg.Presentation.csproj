@@ -13,7 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Files not to show in IDE -->
-    <None Remove="ClientApp\app\modules\item.module.ts" />
     <None Remove="yarn.lock" />
 
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
