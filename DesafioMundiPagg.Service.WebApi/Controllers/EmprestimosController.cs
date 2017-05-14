@@ -55,13 +55,13 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // POST api/emprestimos
         [HttpPost]
-        public IActionResult Post([FromBody] ItemDTO emprestimo)
+        public IActionResult Post([FromBody] EmprestimoDTO emprestimo)
         {
             if (ModelState.IsValid)
             {
                 _emprestimoAppService.Adicionar(emprestimo);
-                _logger.LogInformation(LoggingEvents.ADICIONA, "Item {ID} adicionado", emprestimo.ItemId);
-                string url = $"api/emprestimos/{emprestimo.ItemId}";
+                _logger.LogInformation(LoggingEvents.ADICIONA, "Emprestimo {ID} adicionado", emprestimo.EmprestimoId);
+                string url = $"api/emprestimos/{emprestimo.EmprestimoId}";
                 return Created(url, emprestimo);
             }
 
@@ -70,7 +70,7 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // PUT api/emprestimos/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody] ItemDTO emprestimo)
+        public IActionResult Put(string id, [FromBody] EmprestimoDTO emprestimo)
         {
             if (emprestimo == null)
             {
