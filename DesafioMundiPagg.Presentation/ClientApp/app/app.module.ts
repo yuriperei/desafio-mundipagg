@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './components/app/app.component'
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './components/home/home.component';
 import { ItemFormularioComponent } from './components/item/item-formulario.component';
 
 import { AppRoutingModule } from './app.routes';
@@ -17,7 +16,6 @@ import 'rxjs/add/operator/map';
     declarations: [
         AppComponent,
         NavMenuComponent,
-        HomeComponent,
         ItemFormularioComponent
     ],
     imports: [

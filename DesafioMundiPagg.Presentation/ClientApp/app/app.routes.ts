@@ -1,15 +1,15 @@
 ﻿import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { ItemListagemComponent } from './components/item/item-listagem.component';
 import { ItemFormularioComponent } from './components/item/item-formulario.component';
 
 const appRoutes: Routes = [
 
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
+    { path: '', redirectTo: 'itens', pathMatch: 'full' },
+    { path: 'itens', component: ItemListagemComponent },
     { path: 'cadastrar/item', component: ItemFormularioComponent },
     { path: 'alterar/item/:id', component: ItemFormularioComponent },
-    { path: '**', redirectTo: 'home' }
+    { path: '**', redirectTo: 'itens' }
 
 ];
 

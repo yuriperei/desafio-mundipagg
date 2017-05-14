@@ -8,6 +8,7 @@ import { HttpModule } from "@angular/http";
 import { ItemFiltroPipe } from '../pipes/item-filtro.pipe';
 
 import { ItemService } from '../services/item.service';
+
 import { ItemListagemComponent } from '../components/item/item-listagem.component';
 
 @NgModule({
@@ -16,7 +17,7 @@ import { ItemListagemComponent } from '../components/item/item-listagem.componen
         FormsModule,
         DataTableModule, 
         HttpModule,
-        RouterModule,
+        RouterModule
     ],
     declarations: [ItemListagemComponent, ItemFiltroPipe],
     exports: [ItemListagemComponent],
