@@ -1,0 +1,48 @@
+﻿<div class="container-fluid">
+    <div class="page-header">
+        <h1>
+            <span>Contato</span><br />
+            <small>Cadastro de contato</small>
+        </h1>
+    </div>
+
+    <div class="row">
+        <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+        <form [formGroup]="meuForm" class="row" (submit)="manter($event)">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Valor</label>
+                    <input formControlName="valor"
+                           name="valor"
+                           [(ngModel)]="contato.valor"
+                           class="form-control"
+                           autocomplete="off">
+                    <div *ngIf="meuForm.controls.valor.invalid">
+                        <span *ngIf="meuForm.controls.valor.errors.required" class="form-control alert-danger">Valor obrigatório</span>
+                        <span *ngIf="meuForm.controls.valor.errors.minlength" class="form-control alert-danger">Valor deve ter no mín. 4 carecteres</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <input formControlName="tipo"
+                           name="tipo"
+                           [(ngModel)]="contato.tipo"
+                           class="form-control"
+                           autocomplete="off">
+                    <div *ngIf="meuForm.controls.tipo.invalid">
+                        <span *ngIf="meuForm.controls.tipo.errors.required" class="form-control alert-danger">Tipo obrigatório</span>
+                        <span *ngIf="meuForm.controls.tipo.errors.minlength" class="form-control alert-danger">Tipo deve ter no mín. 4 carecteres</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
+                    Salvar
+                </button>
+                <a [routerLink]="['/contatos']" class="btn btn-primary">Voltar</a>
+                <hr>
+            </div>
+        </form>
+    </div>
+
+</div>

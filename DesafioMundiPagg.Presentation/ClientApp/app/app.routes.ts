@@ -6,6 +6,8 @@ import { PessoaFormularioComponent } from './components/pessoa/pessoa-formulario
 import { PessoaListagemComponent } from './components/pessoa/pessoa-listagem.component';
 import { LocalizacaoListagemComponent } from './components/localizacao/localizacao-listagem.component';
 import { LocalizacaoFormularioComponent } from './components/localizacao/localizacao-formulario.component';
+import { ContatoFormularioComponent } from './components/contato/contato-formulario.component';
+import { ContatoListagemComponent } from './components/contato/contato-listagem.component';
 
 const appRoutes: Routes = [
 
@@ -22,6 +24,10 @@ const appRoutes: Routes = [
     { path: 'localizacoes', component: LocalizacaoListagemComponent },
     { path: 'cadastrar/localizacao', component: LocalizacaoFormularioComponent },
     { path: 'alterar/localizacao/:id', component: LocalizacaoFormularioComponent },
+
+    { path: 'contatos', component: ContatoListagemComponent },
+    { path: 'cadastrar/contato', component: ContatoFormularioComponent },
+    { path: 'alterar/contato/:id', component: ContatoFormularioComponent },
     
     { path: '**', redirectTo: 'itens' }
 ];
