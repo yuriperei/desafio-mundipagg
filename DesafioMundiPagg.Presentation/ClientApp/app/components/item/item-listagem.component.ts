@@ -1,7 +1,6 @@
 ﻿import { Component, OnInit } from "@angular/core";
 import { ItemService } from '../../services/item.service';
 import { ItemComponent } from '../item/item.component';
-//import { Router } from '@angular/router';
 
 @Component({
     selector: 'itemListagem',
