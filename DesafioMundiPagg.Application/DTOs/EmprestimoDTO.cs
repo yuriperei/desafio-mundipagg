@@ -8,8 +8,8 @@ namespace DesafioMundiPagg.Application.DTOs
     public class EmprestimoDTO
     {
         public string EmprestimoId { get; set; }
-        public DateTime DateDevolucao { get; set; }
-        public DateTime DataEmprestimo { get; set; }
+        public string DataDevolucao { get; set; }
+        public string DataEmprestimo { get; set; }
 
         #region Foreing Key
         //public string ItemId { get; set; }
@@ -17,7 +17,6 @@ namespace DesafioMundiPagg.Application.DTOs
         #endregion
 
         #region Navigation
-        [JsonIgnore]
         public ItemDTO Item { get; set; }
         public PessoaDTO Pessoa { get; set; }
         #endregion
