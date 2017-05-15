@@ -23,27 +23,27 @@ export class EmprestimoService {
     manter(emprestimo: EmprestimoComponent): Observable<MensagemCadastro> {
         if (emprestimo.emprestimoId) {
             return this.http.put(this.url + "/" + emprestimo.emprestimoId, JSON.stringify(emprestimo), { headers: this.headers })
-                .map(() => new MensagemCadastro('Emprestimo alterado com sucesso', false, ""));
+                .map(() => new MensagemCadastro('Emprestimo alterado com sucesso', false, "")).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
         } else {
             return this.http
                 .post(this.url, JSON.stringify(emprestimo), { headers: this.headers })
-                .map(resp => new MensagemCadastro('Emprestimo incluído com sucesso', true, new Util().obtemIdDaReposta(resp.text())));
+                .map(resp => new MensagemCadastro('Emprestimo incluído com sucesso', true, new Util().obtemIdDaReposta(resp.text()))).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
         }
     }
 
     lista(): Observable<EmprestimoComponent[]> {
         return this.http
             .get(this.url)
-            .map(res => res.json());
+            .map(res => res.json()).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
     }
 
     remove(emprestimo: EmprestimoComponent) {
-        return this.http.delete(this.url + '/' + emprestimo.emprestimoId);
+        return this.http.delete(this.url + '/' + emprestimo.emprestimoId).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
     }
 
     buscaPorId(id: string): Observable<EmprestimoComponent> {
         return this.http
             .get(this.url + "/" + id)
-            .map(res => res.json());
+            .map(res => res.json()).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
     }
 }

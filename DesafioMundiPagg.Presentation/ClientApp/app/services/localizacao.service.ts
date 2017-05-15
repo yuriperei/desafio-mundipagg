@@ -22,27 +22,27 @@ export class LocalizacaoService {
     manter(localizacao: LocalizacaoComponent): Observable<MensagemCadastro> {
         if (localizacao.localizacaoId) {
             return this.http.put(this.url + "/" + localizacao.localizacaoId, JSON.stringify(localizacao), { headers: this.headers })
-                .map(() => new MensagemCadastro('Localização alterada com sucesso', false, ""));
+                .map(() => new MensagemCadastro('Localização alterada com sucesso', false, "")).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
         } else {
             return this.http
                 .post(this.url, JSON.stringify(localizacao), { headers: this.headers })
-                .map(resp => new MensagemCadastro('Localização incluída com sucesso', true, new Util().obtemIdDaReposta(resp.text())));
+                .map(resp => new MensagemCadastro('Localização incluída com sucesso', true, new Util().obtemIdDaReposta(resp.text()))).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
         }
     }
 
     lista(): Observable<LocalizacaoComponent[]> {
         return this.http
             .get(this.url)
-            .map(res => res.json());
+            .map(res => res.json()).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
     }
 
     remove(localizacao: LocalizacaoComponent) {
-        return this.http.delete(this.url + '/' + localizacao.localizacaoId);
+        return this.http.delete(this.url + '/' + localizacao.localizacaoId).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
     }
 
     buscaPorId(id: string): Observable<LocalizacaoComponent> {
         return this.http
             .get(this.url + "/" + id)
-            .map(res => res.json());
+            .map(res => res.json()).catch((error: any) => Observable.throw(error.json().error || 'Erro no servidor'));
     }
 }
