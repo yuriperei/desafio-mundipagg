@@ -25,7 +25,7 @@ export class EmprestimoListagemComponent implements OnInit {
     ngOnInit() {
         this.service.lista().subscribe(
             emprestimos => this.data = emprestimos,
-            erro => console.log(erro));
+            () => this.mensagem = "Não foi possível listar os emprestimos.");
     }
 
     remover(emprestimo: EmprestimoComponent) {
@@ -39,10 +39,9 @@ export class EmprestimoListagemComponent implements OnInit {
                 this.data = novos;
                 this.mensagem = "Emprestimo removido com sucesso!";
             },
-            erro => {
-                console.log(erro);
-                this.mensagem = "Não foi possível remover!";
-            });
+            () => 
+                this.mensagem = "Não foi possível remover!"
+            );
     }
 
     public toInt(num: string) {

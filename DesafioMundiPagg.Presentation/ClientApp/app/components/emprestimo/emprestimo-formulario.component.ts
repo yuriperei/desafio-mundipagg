@@ -43,15 +43,15 @@ export class EmprestimoFormularioComponent {
             if (id) {
                 this.service
                     .buscaPorId(id)
-                    .subscribe(emprestimo => this.emprestimo = emprestimo, erro => console.log(erro));
+                    .subscribe(emprestimo => this.emprestimo = emprestimo, () => this.mensagem = "Não foi possível obter o Emprestimo solicitado.");
             } else {
 
                 this.itemService.lista().subscribe(itens => {
                     this.itens = itens.filter(array => array.isEmprestado == false);
-                }, erro => console.log(erro));
+                }, () => this.mensagem = "Não foi possível listar os itens.");
             }
 
-            this.pessoaService.lista().subscribe(pessoas => this.pessoas = pessoas, erro => console.log(erro));
+            this.pessoaService.lista().subscribe(pessoas => this.pessoas = pessoas, () => this.mensagem = "Não foi possível listar as Pessoas.");
         });
 
 
@@ -71,7 +71,8 @@ export class EmprestimoFormularioComponent {
             .subscribe(res => {
                 this.mensagem = res.mensagem;
                 this.emprestimo.item.emprestimoId = res.id;
-                
+                this.emprestimo.item.pessoaLocalizacao = this.emprestimo.pessoa.localizacao;
+
                 this.alterarStatusEmprestimo(this.emprestimo.item, true);
 
                 if (res.inclusao) {
@@ -79,19 +80,20 @@ export class EmprestimoFormularioComponent {
                 };
 
 
-            }, erro => console.log(erro));
+            }, () => this.mensagem = "Não foi possível efetuar a ação.");
     }
 
     alterarStatusEmprestimo(item: ItemComponent, status: boolean) {
         item.isEmprestado = status;
         if (!status) {
             item.emprestimoId = "";
+            item.pessoaLocalizacao = null;
             //Atualiza o item que está contido em emprestimo (Livro ficando disponível)
             this.emprestimo.item = item;
-            this.service.manter(this.emprestimo).subscribe(res => this.mensagem = res.mensagem, erro => console.log(erro));
+            this.service.manter(this.emprestimo).subscribe(res => this.mensagem = res.mensagem, () => this.mensagem = "Não foi possível efetuar a ação.");
         }
         //Atualiza o item geral
-        this.itemService.alterarStatusEmprestimo(item).subscribe(res => console.log(res), erro => console.log(erro));
+        this.itemService.alterarStatusEmprestimo(item).subscribe(res => this.mensagem = res.mensagem, () => this.mensagem = "Não foi possível efetuar a ação.");
     }
 
     private myDatePickerOptions: IMyOptions = {
