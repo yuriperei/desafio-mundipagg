@@ -31,6 +31,10 @@
                 <div class="row">
                     <select class="form-control input-sm" [(ngModel)]="sortBy">
                         <option ngValue="nome">Nome</option>
+                        <option ngValue="endereco">Endereço</option>
+                        <option ngValue="cidade">Cidade</option>
+                        <option ngValue="estado">Estado</option>
+                        <option ngValue="pais">Pais</option>
                     </select>
                 </div>
             </div>
@@ -57,8 +61,20 @@
                         </th>
                     </tr>
                     <tr>
-                        <th style="width: 40%">
+                        <th>
                             <mfDefaultSorter by="nome">Nome</mfDefaultSorter>
+                        </th>
+                        <th style="width: 40%">
+                            <mfDefaultSorter by="endereco">Endereço</mfDefaultSorter>
+                        </th>
+                        <th>
+                            <mfDefaultSorter by="cidade">Cidade</mfDefaultSorter>
+                        </th>
+                        <th>
+                            <mfDefaultSorter by="estado">Estado</mfDefaultSorter>
+                        </th>
+                        <th>
+                            <mfDefaultSorter by="pais">País</mfDefaultSorter>
                         </th>
                         <th style="width: 10%"></th>
                     </tr>
@@ -66,8 +82,12 @@
                 <tbody>
                     <tr *ngFor="let localizacao of mf.data">
                         <td>{{localizacao.nome}}</td>
+                        <td>{{localizacao.endereco}}</td>
+                        <td>{{localizacao.cidade}}</td>
+                        <td>{{localizacao.estado}}</td>
+                        <td>{{localizacao.pais}}</td>
                         <td>
-                            <a [routerLink]="['/alterar/localizacao', localizacao.localizacaoId]" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                            <a [routerLink]="['/alterar/localizacao', localizacao.localizacaoId]" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                             <button (click)="remover(localizacao)" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                         </td>
 

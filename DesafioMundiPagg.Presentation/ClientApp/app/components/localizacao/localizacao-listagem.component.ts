@@ -25,7 +25,7 @@ export class LocalizacaoListagemComponent implements OnInit{
     ngOnInit() {
         this.service.lista().subscribe(
             localizacoes => this.data = localizacoes,
-            erro => console.log(erro));
+            () => this.mensagem = "Não foi possível listar as Localizações.");
     }
 
     remover(localizacao: LocalizacaoComponent) {
@@ -39,10 +39,9 @@ export class LocalizacaoListagemComponent implements OnInit{
                 this.data = novos;
                 this.mensagem = "Localização removida com sucesso!";
             },
-            erro => {
-                console.log(erro);
-                this.mensagem = "Não foi possível remover!";
-            });
+            () =>
+                this.mensagem = "Não foi possível remover!"
+            );
     }
 
     public toInt(num: string) {

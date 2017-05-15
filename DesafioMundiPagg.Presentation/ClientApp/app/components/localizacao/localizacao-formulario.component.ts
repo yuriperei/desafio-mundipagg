@@ -13,12 +13,10 @@ export class LocalizacaoFormularioComponent{
 
     localizacao: LocalizacaoComponent = new LocalizacaoComponent();
     meuForm: FormGroup;
-    service: LocalizacaoService;
-    route: ActivatedRoute;
-    router: Router;
+
     mensagem: string = "";
 
-    constructor(service: LocalizacaoService, fb: FormBuilder, route: ActivatedRoute, router: Router) {
+    constructor(private service: LocalizacaoService, fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
         this.service = service;
         this.route = route;
         this.router = router;
@@ -28,12 +26,16 @@ export class LocalizacaoFormularioComponent{
             if (id) {
                 this.service
                     .buscaPorId(id)
-                    .subscribe(localizacao => this.localizacao = localizacao, erro => console.log(erro));
+                    .subscribe(localizacao => this.localizacao = localizacao, () => this.mensagem = "Não foi possível obter a localização solicitada.");
             }
         });
 
         this.meuForm = fb.group({
             nome: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+            endereco: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
+            cidade: ['', Validators.compose([Validators.required])],
+            estado: ['', Validators.compose([Validators.required])],
+            pais: ['', Validators.compose([Validators.required])]
         });
     }
 
@@ -47,7 +49,7 @@ export class LocalizacaoFormularioComponent{
                 if (res.inclusao) {
                     this.localizacao = new LocalizacaoComponent();
                 };
-            }, erro => console.log(erro));
+            }, () => this.mensagem = "Não foi possível efetuar a ação.");
     }
 
 }
