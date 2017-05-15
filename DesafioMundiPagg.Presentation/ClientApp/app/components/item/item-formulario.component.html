@@ -16,19 +16,32 @@
                            name="titulo"
                            [(ngModel)]="item.titulo"
                            class="form-control"
-                           autocomplete="off">
+                           autocomplete="off" readonly="{{item.titulo}}">
                     <div *ngIf="meuForm.controls.titulo.invalid">
                         <span *ngIf="meuForm.controls.titulo.errors.required" class="form-control alert-danger">Título obrigatório</span>
                         <span *ngIf="meuForm.controls.titulo.errors.minlength" class="form-control alert-danger">Título deve ter no mín. 4 carecteres</span>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label>Tipo do Item</label>
-                    <select class="form-control input-sm" formControlName="tipoItem" name="tipoItem" [(ngModel)]="item.tipoItem">
-                        <option [ngValue]="0" [attr.selected]="item.tipoItem == 'Livro' ? true : null">Livro</option>
-                        <option [ngValue]="1" [attr.selected]="item.tipoItem == 'Cd' ? true : null">Cd</option>
-                        <option [ngValue]="2" [attr.selected]="item.tipoItem == 'Dvd' ? true : null">Dvd</option>
-                    </select>
+                    <div *ngIf="!item.itemId">
+                        <select class="form-control input-sm" formControlName="tipoItem" name="tipoItem" [(ngModel)]="item.tipoItem">
+                            <option [ngValue]="0" [attr.selected]="item.tipoItem == 'Livro' ? true : null">Livro</option>
+                            <option [ngValue]="1" [attr.selected]="item.tipoItem == 'Cd' ? true : null">Cd</option>
+                            <option [ngValue]="2" [attr.selected]="item.tipoItem == 'Dvd' ? true : null">Dvd</option>
+                        </select>
+                    </div>
+                    <div *ngIf="item.itemId">
+                        <input readonly name="tipoItem" formControlName="tipoItem"
+                               value="{{item.tipoItem}}"
+                               class="form-control"
+                               autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group">
+
                 </div>
 
                 <div *ngIf="item.itemId">
@@ -41,7 +54,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
+                <button *ngIf="!item.itemId" type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
                     Salvar
                 </button>
                 <a [routerLink]="['']" class="btn btn-primary">Voltar</a>

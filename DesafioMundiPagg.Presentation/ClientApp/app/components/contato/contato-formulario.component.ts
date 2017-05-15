@@ -40,11 +40,9 @@ export class ContatoFormularioComponent{
 
     manter(event) {
         event.preventDefault();
-
         this.service.manter(this.contato)
             .subscribe(res => {
                 this.mensagem = res.mensagem;
-                
                 if (res.inclusao) {
                     this.contato = new ContatoComponent();
                 };

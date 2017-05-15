@@ -9,4 +9,5 @@ export class ItemComponent {
     @Input() tipoItem: string[] = ["Livro", "Cd", "Dvd"];
     @Input() isEmprestado: boolean;
     @Input() localizacao: string;
+    emprestimoId: string;
 }

@@ -1,6 +1,7 @@
 ﻿import { Http, Response, Headers } from '@angular/http';
 import { ItemComponent } from '../components/item/item.component';
 import { MensagemCadastro } from '../utils/mensagem-cadastro.class';
+import { Util } from '../utils/util.class';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
@@ -21,11 +22,11 @@ export class ItemService {
     manter(item: ItemComponent): Observable<MensagemCadastro> {
         if (item.itemId) {
             return this.http.put(this.url + "/" + item.itemId, JSON.stringify(item), { headers: this.headers })
-                .map(() => new MensagemCadastro('Item alterado com sucesso', false));
+                .map(() => new MensagemCadastro('Item alterado com sucesso', false, ""));
         } else {
             return this.http
                 .post(this.url, JSON.stringify(item), { headers: this.headers })
-                .map(() => new MensagemCadastro('Item incluído com sucesso', true));
+                .map(resp => new MensagemCadastro('Item incluído com sucesso', true, new Util().obtemIdDaReposta(resp.text())));
         }
     }
 
@@ -33,6 +34,11 @@ export class ItemService {
         return this.http
             .get(this.url)
             .map(res => res.json());
+    }
+
+    alterarStatusEmprestimo(item: ItemComponent) {
+        return this.http.put(this.url + "/" + item.itemId, item, { headers: this.headers })
+            .map(() => new MensagemCadastro('Status Emprestimo alterado com sucesso', false, ""));
     }
 
     remove(item: ItemComponent) {
