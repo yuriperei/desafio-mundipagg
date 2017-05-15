@@ -16,7 +16,7 @@
                            name="titulo"
                            [(ngModel)]="item.titulo"
                            class="form-control"
-                           autocomplete="off" readonly="{{item.titulo}}">
+                           autocomplete="off" readonly="{{item.itemId}}">
                     <div *ngIf="meuForm.controls.titulo.invalid">
                         <span *ngIf="meuForm.controls.titulo.errors.required" class="form-control alert-danger">Título obrigatório</span>
                         <span *ngIf="meuForm.controls.titulo.errors.minlength" class="form-control alert-danger">Título deve ter no mín. 4 carecteres</span>
@@ -40,10 +40,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-
-                </div>
-
                 <div *ngIf="item.itemId">
                     <div class="form-group">
                         <label>Emprestado</label>
@@ -54,10 +50,103 @@
                     </div>
                 </div>
 
-                <button *ngIf="!item.itemId" type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
+                <div class="form-group">
+                    <label>Localização</label>
+                    <div *ngIf="!item.isEmprestado">
+                        <select class="form-control input-sm" name="localizacoes" formControlName="localizacoes" [(ngModel)]="item.localizacao">
+                            <option *ngFor="let localizacao of localizacoes" [ngValue]="localizacao">{{localizacao.nome}}</option>
+                        </select>
+
+                        <div *ngIf="item.localizacao" style="margin: 15px;">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Nome da Localização</label>
+                                    <input readonly
+                                           value="{{item.localizacao.nome}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                                <div class="col-md-8">
+                                    <label>Endereço</label>
+                                    <input readonly
+                                           value="{{item.localizacao.endereco}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row" style="padding-top:10px;">
+                                <div class="col-md-5">
+                                    <label>Cidade</label>
+                                    <input readonly
+                                           value="{{item.localizacao.cidade}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Estado</label>
+                                    <input readonly
+                                           value="{{item.localizacao.estado}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>País</label>
+                                    <input readonly
+                                           value="{{item.localizacao.pais}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="item.pessoaLocalizacao" style="margin: 15px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Nome da Localização</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.nome}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                        <div class="col-md-8">
+                            <label>Endereço</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.endereco}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top:10px;">
+                        <div class="col-md-5">
+                            <label>Cidade</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.cidade}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Estado</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.estado}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                        <div class="col-md-3">
+                            <label>País</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.pais}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+
+                <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+                <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
                     Salvar
                 </button>
-                <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
                 <hr>
             </div>
         </form>

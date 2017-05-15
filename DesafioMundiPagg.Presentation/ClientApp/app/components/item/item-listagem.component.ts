@@ -27,7 +27,7 @@ export class ItemListagemComponent implements OnInit{
     ngOnInit() {
         this.service.lista().subscribe(
             itens => this.data = itens,
-            erro => console.log(erro));
+            erro => () => this.mensagem = "Não foi possível listar os itens.");
     }
 
     remover(item: ItemComponent) {
@@ -41,10 +41,9 @@ export class ItemListagemComponent implements OnInit{
                 this.data = novos;
                 this.mensagem = "Item removido com sucesso!";
             },
-            erro => {
-                console.log(erro);
-                this.mensagem = "Não foi possível remover!";
-            });
+            () => 
+                this.mensagem = "Não foi possível remover!"
+            );
     }
 
     public toInt(num: string) {
