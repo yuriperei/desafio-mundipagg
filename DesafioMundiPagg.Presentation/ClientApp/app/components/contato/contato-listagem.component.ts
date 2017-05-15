@@ -7,7 +7,7 @@ import { ContatoComponent } from '../contato/contato.component';
     templateUrl: './contato-listagem.component.html'
 })
 
-export class ContatoListagemComponent implements OnInit{
+export class ContatoListagemComponent implements OnInit {
 
     public data: Array<ContatoComponent> = [];
     public filterQuery = "";
@@ -25,7 +25,7 @@ export class ContatoListagemComponent implements OnInit{
     ngOnInit() {
         this.service.lista().subscribe(
             contatos => this.data = contatos,
-            erro => console.log(erro));
+            erro => () => this.mensagem = "Não foi possível listar os contatos.");
     }
 
     remover(contato: ContatoComponent) {
@@ -39,10 +39,9 @@ export class ContatoListagemComponent implements OnInit{
                 this.data = novos;
                 this.mensagem = "Contato removido com sucesso!";
             },
-            erro => {
-                console.log(erro);
-                this.mensagem = "Não foi possível remover!";
-            });
+            () =>
+                this.mensagem = "Não foi possível remover!"
+            );
     }
 
     public toInt(num: string) {

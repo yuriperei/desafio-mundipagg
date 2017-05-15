@@ -11,6 +11,19 @@
         <form [formGroup]="meuForm" class="row" (submit)="manter($event)">
             <div class="col-md-12">
                 <div class="form-group">
+                    <label>Tipo</label>
+                    <input formControlName="tipo"
+                           name="tipo"
+                           [(ngModel)]="contato.tipo"
+                           class="form-control"
+                           autocomplete="off" placeholder="E-mail, celular, Facebook, Linkedin...">
+                    <div *ngIf="meuForm.controls.tipo.invalid">
+                        <span *ngIf="meuForm.controls.tipo.errors.required" class="form-control alert-danger">Tipo obrigatório</span>
+                        <span *ngIf="meuForm.controls.tipo.errors.minlength" class="form-control alert-danger">Tipo deve ter no mín. 4 carecteres</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label>Valor</label>
                     <input formControlName="valor"
                            name="valor"
@@ -20,19 +33,6 @@
                     <div *ngIf="meuForm.controls.valor.invalid">
                         <span *ngIf="meuForm.controls.valor.errors.required" class="form-control alert-danger">Valor obrigatório</span>
                         <span *ngIf="meuForm.controls.valor.errors.minlength" class="form-control alert-danger">Valor deve ter no mín. 4 carecteres</span>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Tipo</label>
-                    <input formControlName="tipo"
-                           name="tipo"
-                           [(ngModel)]="contato.tipo"
-                           class="form-control"
-                           autocomplete="off">
-                    <div *ngIf="meuForm.controls.tipo.invalid">
-                        <span *ngIf="meuForm.controls.tipo.errors.required" class="form-control alert-danger">Tipo obrigatório</span>
-                        <span *ngIf="meuForm.controls.tipo.errors.minlength" class="form-control alert-danger">Tipo deve ter no mín. 4 carecteres</span>
                     </div>
                 </div>
 

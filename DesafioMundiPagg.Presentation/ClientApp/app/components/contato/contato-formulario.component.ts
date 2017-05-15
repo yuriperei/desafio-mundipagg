@@ -28,7 +28,7 @@ export class ContatoFormularioComponent{
             if (id) {
                 this.service
                     .buscaPorId(id)
-                    .subscribe(contato => this.contato = contato, erro => console.log(erro));
+                    .subscribe(contato => this.contato = contato, () => this.mensagem = "Não foi possível obter o contato solicitado.");
             }
         });
 
@@ -46,7 +46,7 @@ export class ContatoFormularioComponent{
                 if (res.inclusao) {
                     this.contato = new ContatoComponent();
                 };
-            }, erro => console.log(erro));
+            }, erro => () => this.mensagem = "Não foi possível efetuar a ação.");
     }
 
 }
