@@ -44,9 +44,6 @@ export class EmprestimoFormularioComponent {
                 this.service
                     .buscaPorId(id)
                     .subscribe(emprestimo => this.emprestimo = emprestimo, erro => console.log(erro));
-                this.itemService.lista().subscribe(itens => {
-                    this.itens = itens.filter(array => array.isEmprestado == true);
-                }, erro => console.log(erro));
             } else {
 
                 this.itemService.lista().subscribe(itens => {
