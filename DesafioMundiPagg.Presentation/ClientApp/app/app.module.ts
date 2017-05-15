@@ -4,6 +4,7 @@ import { ItemModule } from './modules/item.module';
 import { PessoaModule } from './modules/pessoa.module';
 import { LocalizacaoModule } from './modules/localizacao.module';
 import { ContatoModule } from './modules/contato.module';
+import { EmprestimoModule } from './modules/emprestimo.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './components/app/app.component'
@@ -17,7 +18,7 @@ import 'rxjs/add/operator/map';
     bootstrap: [ AppComponent ],
     declarations: [
         AppComponent,
-        NavMenuComponent
+        NavMenuComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -25,6 +26,7 @@ import 'rxjs/add/operator/map';
         PessoaModule,
         LocalizacaoModule,
         ContatoModule,
+        EmprestimoModule,
         FormsModule, ReactiveFormsModule,
         UniversalModule // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
     ]

@@ -8,6 +8,8 @@ import { LocalizacaoListagemComponent } from './components/localizacao/localizac
 import { LocalizacaoFormularioComponent } from './components/localizacao/localizacao-formulario.component';
 import { ContatoFormularioComponent } from './components/contato/contato-formulario.component';
 import { ContatoListagemComponent } from './components/contato/contato-listagem.component';
+import { EmprestimoFormularioComponent } from './components/emprestimo/emprestimo-formulario.component';
+import { EmprestimoListagemComponent } from './components/emprestimo/emprestimo-listagem.component';
 
 const appRoutes: Routes = [
 
@@ -28,7 +30,11 @@ const appRoutes: Routes = [
     { path: 'contatos', component: ContatoListagemComponent },
     { path: 'cadastrar/contato', component: ContatoFormularioComponent },
     { path: 'alterar/contato/:id', component: ContatoFormularioComponent },
-    
+
+    { path: 'emprestimos', component: EmprestimoListagemComponent },
+    { path: 'cadastrar/emprestimo', component: EmprestimoFormularioComponent },
+    { path: 'alterar/emprestimo/:id', component: EmprestimoFormularioComponent },
+
     { path: '**', redirectTo: 'itens' }
 ];
 
@@ -36,4 +42,4 @@ const appRoutes: Routes = [
     imports: [RouterModule.forRoot(appRoutes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule{}
+export class AppRoutingModule { }
