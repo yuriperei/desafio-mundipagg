@@ -11,6 +11,7 @@ export class EmprestimoFiltroPipe implements PipeTransform {
                 array.dataEmprestimo.toLowerCase().includes(query.toLowerCase()) ||
                 array.dataDevolucao.toLowerCase().includes(query.toLowerCase()) ||
                 array.item.titulo.toLowerCase().includes(query.toLowerCase()) ||
+                array.item.tipoItem.toLowerCase().includes(query.toLowerCase()) ||
                 array.pessoa.nome.toLowerCase().includes(query.toLowerCase())
             );
         }
