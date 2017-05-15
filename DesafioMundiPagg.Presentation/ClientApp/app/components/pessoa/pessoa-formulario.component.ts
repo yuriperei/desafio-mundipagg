@@ -2,7 +2,11 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PessoaService } from '../../services/pessoa.service';
+import { LocalizacaoService } from '../../services/localizacao.service';
+import { ContatoService } from '../../services/contato.service';
 import { PessoaComponent } from '../pessoa/pessoa.component';
+import { LocalizacaoComponent } from '../localizacao/localizacao.component';
+import { ContatoComponent } from '../contato/contato.component';
 
 @Component({
     selector: 'pessoaFormulario',
@@ -12,28 +16,35 @@ import { PessoaComponent } from '../pessoa/pessoa.component';
 export class PessoaFormularioComponent {
 
     pessoa: PessoaComponent = new PessoaComponent();
+    localizacoes: Array<LocalizacaoComponent> = [];
+    contatos: Array<ContatoComponent> = [];
     meuForm: FormGroup;
-    service: PessoaService;
-    route: ActivatedRoute;
-    router: Router;
+
     mensagem: string = "";
 
-    constructor(service: PessoaService, fb: FormBuilder, route: ActivatedRoute, router: Router) {
+    constructor(private service: PessoaService, private localizacaoService: LocalizacaoService, private contatoService: ContatoService, fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
         this.service = service;
         this.route = route;
         this.router = router;
+        this.localizacaoService = localizacaoService;
+        this.contatoService = contatoService;
 
         this.route.params.subscribe(params => {
             let id = params['id'];
             if (id) {
                 this.service
                     .buscaPorId(id)
-                    .subscribe(pessoa => this.pessoa = pessoa, erro => console.log(erro));
+                    .subscribe(pessoa => this.pessoa = pessoa, () => this.mensagem = "Não foi possível obter a pessoa solicitada.");
             }
         });
 
+        this.localizacaoService.lista().subscribe(localizacoes => this.localizacoes = localizacoes, () => this.mensagem = "Não foi possível listar as Localizações.");
+        this.contatoService.lista().subscribe(contatos => this.contatos = contatos, () => this.mensagem = "Não foi possível listar os Contatos.");
+
         this.meuForm = fb.group({
             nome: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+            localizacoes: ['', Validators.compose([Validators.required])],
+            contatos: ['']
         });
     }
 
@@ -47,7 +58,7 @@ export class PessoaFormularioComponent {
                 if (res.inclusao) {
                     this.pessoa = new PessoaComponent();
                 };
-            }, erro => console.log(erro));
+            }, () => this.mensagem = "Não foi possível efetuar a ação.");
     }
 
 }
