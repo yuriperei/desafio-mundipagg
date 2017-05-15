@@ -11,15 +11,12 @@ namespace DesafioMundiPagg.Domain.Entities
         public string Titulo { get; set; }
         public TipoItem TipoItem { get; set; }
         public bool IsEmprestado { get; set; }
-
-        #region Foreing Key
-        //public string LocalizacaoId { get; set; }
-        //public string EmprestimoId { get; set; }
-        #endregion
+        public string EmprestimoId { get; set; }
 
         #region Navigation 
         public Localizacao Localizacao { get; set; }
-        public IEnumerable<Emprestimo> Emprestimos { get; set; }
+        //public Emprestimo Emprestimo { get; set; }
         #endregion
+
     }
 }
