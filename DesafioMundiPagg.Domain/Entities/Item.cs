@@ -15,7 +15,7 @@ namespace DesafioMundiPagg.Domain.Entities
 
         #region Navigation 
         public Localizacao Localizacao { get; set; }
-        //public Emprestimo Emprestimo { get; set; }
+        public Localizacao PessoaLocalizacao { get; set; }
         #endregion
 
     }

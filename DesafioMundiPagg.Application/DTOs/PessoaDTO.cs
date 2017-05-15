@@ -10,15 +10,9 @@ namespace DesafioMundiPagg.Application.DTOs
         public string PessoaId { get; set; }
         public string Nome { get; set; }
 
-        #region Foreing Key
-        //public string LocalizacaoId { get; set; }
-        #endregion
-
         #region Navigation
         public LocalizacaoDTO Localizacao { get; set; }
-        public IEnumerable<ContatoDTO> Contatos { get; set; }
-        [JsonIgnore]
-        public IEnumerable<EmprestimoDTO> Emprestimos { get; set; }
+        public ContatoDTO Contato { get; set; }
         #endregion
     }
 }
