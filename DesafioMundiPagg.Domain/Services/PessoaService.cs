@@ -9,8 +9,6 @@ namespace DesafioMundiPagg.Domain.Services
 {
     public class PessoaService : ServiceBase<Pessoa>, IPessoaService
     {
-        public PessoaService(IPessoaRepository pessoaRepository) : base(pessoaRepository)
-        {
-        }
+        public PessoaService(IPessoaRepository pessoaRepository) : base(pessoaRepository){}
     }
 }

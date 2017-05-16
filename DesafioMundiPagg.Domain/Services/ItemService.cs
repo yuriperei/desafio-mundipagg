@@ -9,11 +9,6 @@ namespace DesafioMundiPagg.Domain.Services
 {
     public class ItemService : ServiceBase<Item>, IItemService
     {
-        //private readonly IItemRepository _itemRepository;
-
-        public ItemService(IItemRepository itemRepository) : base(itemRepository)
-        {
-            //_itemRepository = itemRepository;
-        }
+        public ItemService(IItemRepository itemRepository) : base(itemRepository){ }
     }
 }

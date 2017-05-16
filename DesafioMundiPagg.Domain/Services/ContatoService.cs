@@ -9,8 +9,6 @@ namespace DesafioMundiPagg.Domain.Services
 {
     public class ContatoService : ServiceBase<Contato>, IContatoService
     {
-        public ContatoService(IContatoRepository contatoRepository) : base(contatoRepository)
-        {
-        }
+        public ContatoService(IContatoRepository contatoRepository) : base(contatoRepository){}
     }
 }

@@ -9,9 +9,6 @@ namespace DesafioMundiPagg.Domain.Services
 {
     public class LocalizacaoService : ServiceBase<Localizacao>, ILocalizacaoService
     {
-        public LocalizacaoService(ILocalizacaoRepository localizacaoRepository) : base(localizacaoRepository)
-        {
-
-        }
+        public LocalizacaoService(ILocalizacaoRepository localizacaoRepository) : base(localizacaoRepository){}
     }
 }

@@ -9,8 +9,6 @@ namespace DesafioMundiPagg.Domain.Services
 {
     public class EmprestimoService : ServiceBase<Emprestimo>, IEmprestimoService
     {
-        public EmprestimoService(IEmprestimoRepository emprestimoRepository) : base(emprestimoRepository)
-        {
-        }
+        public EmprestimoService(IEmprestimoRepository emprestimoRepository) : base(emprestimoRepository){}
     }
 }
