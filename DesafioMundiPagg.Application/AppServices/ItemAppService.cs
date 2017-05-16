@@ -6,7 +6,7 @@ using DesafioMundiPagg.Domain.Interfaces.Services;
 using DesafioMundiPagg.Domain.Services;
 using DesafioMundiPagg.Infra.CrossCutting.Logger;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;E
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
