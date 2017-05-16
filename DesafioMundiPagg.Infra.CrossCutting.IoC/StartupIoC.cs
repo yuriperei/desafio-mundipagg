@@ -19,29 +19,32 @@ namespace DesafioMundiPagg.Infra.CrossCutting.IoC
         public static void RegisterIoC(IServiceCollection services)
         {
             //ElasticSearch Dependencies
-            services.AddSingleton<IElasticsearchMappingResolver, ElasticsearchMappingResolver>();
-            services.AddSingleton<ElasticSearchProvider>();
+            services.AddTransient<IElasticsearchMappingResolver, ElasticsearchMappingResolver>();
+            services.AddTransient<ElasticSearchProvider>();
+
+            //Logger
+            services.AddTransient<ILoggerFactory, LoggerFactory>();
 
             //Repository Dependencies
-            services.AddSingleton<IItemRepository, ItemRepository>();
-            services.AddSingleton<IContatoRepository, ContatoRepository>();
-            services.AddSingleton<IEmprestimoRepository, EmprestimoRepository>();
-            services.AddSingleton<ILocalizacaoRepository, LocalizacaoRepository>();
-            services.AddSingleton<IPessoaRepository, PessoaRepository>();
+            services.AddTransient<IItemRepository, ItemRepository>();
+            services.AddTransient<IContatoRepository, ContatoRepository>();
+            services.AddTransient<IEmprestimoRepository, EmprestimoRepository>();
+            services.AddTransient<ILocalizacaoRepository, LocalizacaoRepository>();
+            services.AddTransient<IPessoaRepository, PessoaRepository>();
 
             //Application Services Dependencies
-            services.AddSingleton<IItemAppService, ItemAppService>();
-            services.AddSingleton<IContatoAppService, ContatoAppService>();
-            services.AddSingleton<IEmprestimoAppService, EmprestimoAppService>();
-            services.AddSingleton<ILocalizacaoAppService, LocalizacaoAppService>();
-            services.AddSingleton<IPessoaAppService, PessoaAppService>();
+            services.AddTransient<IItemAppService, ItemAppService>();
+            services.AddTransient<IContatoAppService, ContatoAppService>();
+            services.AddTransient<IEmprestimoAppService, EmprestimoAppService>();
+            services.AddTransient<ILocalizacaoAppService, LocalizacaoAppService>();
+            services.AddTransient<IPessoaAppService, PessoaAppService>();
 
             //Domain Services Dependencies
-            services.AddSingleton<IItemService, ItemService>();
-            services.AddSingleton<IContatoService, ContatoService>();
-            services.AddSingleton<IEmprestimoService, EmprestimoService>();
-            services.AddSingleton<ILocalizacaoService, LocalizacaoService>();
-            services.AddSingleton<IPessoaService, PessoaService>();
+            services.AddTransient<IItemService, ItemService>();
+            services.AddTransient<IContatoService, ContatoService>();
+            services.AddTransient<IEmprestimoService, EmprestimoService>();
+            services.AddTransient<ILocalizacaoService, LocalizacaoService>();
+            services.AddTransient<IPessoaService, PessoaService>();
         }
     }
 }
