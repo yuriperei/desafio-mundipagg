@@ -22,9 +22,6 @@ namespace DesafioMundiPagg.Infra.CrossCutting.IoC
             services.AddTransient<IElasticsearchMappingResolver, ElasticsearchMappingResolver>();
             services.AddTransient<ElasticSearchProvider>();
 
-            //Logger
-            services.AddTransient<ILoggerFactory, LoggerFactory>();
-
             //Repository Dependencies
             services.AddTransient<IItemRepository, ItemRepository>();
             services.AddTransient<IContatoRepository, ContatoRepository>();
