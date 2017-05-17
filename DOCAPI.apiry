@@ -13,136 +13,136 @@ Em listagem, é possível ordenar os itens pelas diversas colunas existentes. Ta
 + Endpoint: api/itens/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-{
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
-}
+            {
+                "titulo": String,
+                "tipoItem": String,
+                "isEmprestado": Boolean,
+                "emprestimoId": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                }
+            }
 
 ### Itens (Todos) [GET]
 + Endpoint: api/itens
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-[
-{
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
-}
-]
+            [
+                {
+                    "titulo": String,
+                    "tipoItem": String,
+                    "isEmprestado": Boolean,
+                    "emprestimoId": String,
+                    "localizacao": 
+                    {
+                        "localizacaoId": String,
+                        "nome": String,
+                        "endereco": String,
+                        "cidade": String,
+                        "estado": String,
+                        "pais": String
+                    }
+                }
+            ]
 
 ### Itens [POST]
 + Endpoint: api/itens
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
-}
+    + Body
+    
+            {
+                "titulo": String,
+                "tipoItem": String,
+                "isEmprestado": Boolean,
+                "emprestimoId": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                }
+            }
 
 + Response 400 (application/json)
 
-{
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
-}
+            {
+                "titulo": String,
+                "tipoItem": String,
+                "isEmprestado": Boolean,
+                "emprestimoId": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                }
+            }
+    
++ Response 201 (application/json)    
+    + Headers
+    
+            url: String
 
-+ Response 201 (application/json)    
-+ Headers
+    + Body
+            {
+                "itemId": String, 
+                "titulo": String,
+                "tipoItem": String,
+                "isEmprestado": Boolean,
+                "emprestimoId": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                }
+            }
 
-url: String
-
-+ Body
-{
-"itemId": String, 
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
-}
-
-
+            
 ### Itens [PUT]
 + Endpoint: api/itens/{ID}
 
-###### Observação: 
+###### Observação: 
 
 pessoaLocalizacao: é opcional ter algum valor. Exemplos abaixo.
 
@@ -150,428 +150,428 @@ pessoaLocalizacao: é opcional ter algum valor. Exemplos abaixo.
 ##### pessoaLocalizacao: null
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"itemId": String,
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"pessoaLocalizacao": null
-}
+    + Body
+    
+            {
+                "itemId": String,
+                "titulo": String,
+                "tipoItem": String,
+                "isEmprestado": Boolean,
+                "emprestimoId": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "pessoaLocalizacao": null
+            }
 
 
 ##### pessoaLocalizacao: Preenchido
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"itemId": String,
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"pessoaLocalizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
-}
+    + Body
+    
+            {
+                "itemId": String,
+                "titulo": String,
+                "tipoItem": String,
+                "isEmprestado": Boolean,
+                "emprestimoId": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "pessoaLocalizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                }
+            }
 
 + Response 400 (application/json)
-
-no body
+    
+    no body
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 202 (application/json)
-
-no body
+    
+    no body
 
 ### Itens [DELETE]
 + Endpoint: api/itens/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-no body
-
+    no body
+       
 ## Contatos [api/contatos]
 
 ### Contatos (Por ID) [GET]
 + Endpoint: api/contatos/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
+            {
+                "contatoId": String,
+                "valor": String,
+                "tipo": String
+            }
 
 
 ### Contatos (Todos) [GET]
 + Endpoint: api/contatos
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-[
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-]
+            [
+                {
+                    "contatoId": String,
+                    "valor": String,
+                    "tipo": String
+                }
+            ]
 
 ### Contatos [POST]
 + Endpoint: api/contatos
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"valor": String,
-"tipo": String
-}
+    + Body
+    
+            {
+                "valor": String,
+                "tipo": String
+            }
 
 
 + Response 400 (application/json)
+    
+            {
+                "valor": String,
+                "tipo": String
+            }
+    
++ Response 201 (application/json)    
+    + Headers
+    
+            url: String
 
-{
-"valor": String,
-"tipo": String
-}
-
-+ Response 201 (application/json)    
-+ Headers
-
-url: String
-
-+ Body
-
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-
+    + Body
+    
+            {
+                "contatoId": String,
+                "valor": String,
+                "tipo": String
+            }
+ 
 ### Contatos [PUT]
 + Endpoint: api/contatos/{ID}
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
+    + Body
+    
+            {
+                "contatoId": String,
+                "valor": String,
+                "tipo": String
+            }
 
 
 + Response 400 (application/json)
-
-no body
+    
+    no body
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 202 (application/json)
-
-no body
+    
+    no body
 
 ### Contatos [DELETE]
 + Endpoint: api/contatos/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-no body
-
+    no body
+    
 ## Pessoas [api/pessoas]
 
 ### Pessoas (Por ID) [GET]
 + Endpoint: api/pessoas/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-{
-"pessoaId": String,
-"nome": String,
-"localizacao":
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato":
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
+            {
+                "pessoaId": String,
+                "nome": String,
+                "localizacao":
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "contato":
+                {
+                    "contatoId": String,
+                    "valor": String,
+                    "tipo": String
+                }
+            }
 
 
 ### Pessoas (Todos) [GET]
 + Endpoint: api/pessoas
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-[
-{
-"pessoaId": String,
-"nome": String,
-"localizacao":
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato":
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-]
+            [
+                {
+                "pessoaId": String,
+                "nome": String,
+                "localizacao":
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "contato":
+                {
+                    "contatoId": String,
+                    "valor": String,
+                    "tipo": String
+                }
+            ]
 
 ### Pessoas [POST]
 + Endpoint: api/pessoas
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"nome": String,
-"localizacao":
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato":
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
+    + Body
+    
+            {
+                "nome": String,
+                "localizacao":
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "contato":
+                {
+                    "contatoId": String,
+                    "valor": String,
+                    "tipo": String
+                }
+            }
 
 
 + Response 400 (application/json)
+    
+            {
+                "nome": String,
+                "localizacao":
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "contato":
+                {
+                    "contatoId": String,
+                    "valor": String,
+                    "tipo": String
+                }
+            }
+    
++ Response 201 (application/json)    
+    + Headers
+    
+            url: String
 
-{
-"nome": String,
-"localizacao":
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato":
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
-
-+ Response 201 (application/json)    
-+ Headers
-
-url: String
-
-+ Body
-
-{
-"pessoaId": String,
-"nome": String,
-"localizacao":
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato":
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
-
+    + Body
+    
+            {
+                "pessoaId": String,
+                "nome": String,
+                "localizacao":
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "contato":
+                {
+                    "contatoId": String,
+                    "valor": String,
+                    "tipo": String
+                }
+            }
+ 
 ### Pessoas [PUT]
 + Endpoint: api/pessoas/{ID}
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"pessoaId": String,
-"nome": String,
-"localizacao":
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato":
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
+    + Body
+    
+            {
+                "pessoaId": String,
+                "nome": String,
+                "localizacao":
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "contato":
+                {
+                    "contatoId": String,
+                    "valor": String,
+                    "tipo": String
+                }
+            }
 
 
 + Response 400 (application/json)
-
-no body
+    
+    no body
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 202 (application/json)
-
-no body
+    
+    no body
 
 ### Pessoas [DELETE]
 + Endpoint: api/pessoas/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-no body
+    no body
 
 ## Localizações [api/localizacoes]
 
@@ -579,143 +579,143 @@ no body
 + Endpoint: api/localizacoes/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
+            {
+                "localizacaoId": String,
+                "nome": String,
+                "endereco": String,
+                "cidade": String,
+                "estado": String,
+                "pais": String
+            }
 
 
 ### Localizações (Todos) [GET]
 + Endpoint: api/localizacoes
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-[
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
-]
+            [
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                }
+            ]
 
 ### Localizações [POST]
 + Endpoint: api/localizacoes
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
+    + Body
+    
+            {
+                "nome": String,
+                "endereco": String,
+                "cidade": String,
+                "estado": String,
+                "pais": String
+            }
 
 
 + Response 400 (application/json)
+    
+            {
+                "nome": String,
+                "endereco": String,
+                "cidade": String,
+                "estado": String,
+                "pais": String
+            }
+    
++ Response 201 (application/json)    
+    + Headers
+    
+            url: String
 
-{
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
-
-+ Response 201 (application/json)    
-+ Headers
-
-url: String
-
-+ Body
-
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
-
+    + Body
+    
+            {
+                "localizacaoId": String,
+                "nome": String,
+                "endereco": String,
+                "cidade": String,
+                "estado": String,
+                "pais": String
+            }
+ 
 ### Localizações [PUT]
 + Endpoint: api/localizacoes/{ID}
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-}
+    + Body
+    
+            {
+                "localizacaoId": String,
+                "nome": String,
+                "endereco": String,
+                "cidade": String,
+                "estado": String,
+                "pais": String
+            }
 
 
 + Response 400 (application/json)
-
-no body
+    
+    no body
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 202 (application/json)
-
-no body
+    
+    no body
 
 ### Localizações [DELETE]
 + Endpoint: api/localizacoes/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-no body    
+    no body    
 
 ## Emprestimos [api/emprestimos]
 
@@ -723,352 +723,352 @@ no body
 + Endpoint: api/emprestimos/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-{
-"emprestimoId": String,
-"dataDevolucao": String,
-"dataEmprestimo": String,
-"item": 
-{
-"itemId": String,
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"pessoaLocalizacao": String
-},
-"pessoa": 
-{
-"pessoaId": String,
-"nome": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato": 
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
-}
+        {
+            "emprestimoId": String,
+            "dataDevolucao": String,
+            "dataEmprestimo": String,
+            "item": 
+            {
+                "itemId": String,
+                "titulo": String,
+                "tipoItem": String,
+                "isEmprestado": Boolean,
+                "emprestimoId": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "pessoaLocalizacao": String
+            },
+            "pessoa": 
+            {
+                "pessoaId": String,
+                "nome": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "contato": 
+                {
+                    "contatoId": String,
+                    "valor": String,
+                    "tipo": String
+                }
+            }
+        }
 
 
 ### Emprestimos (Todos) [GET]
 + Endpoint: api/emprestimos
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-[
-{
-"emprestimoId": String,
-"dataDevolucao": String,
-"dataEmprestimo": String,
-"item": 
-{
-"itemId": String,
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"pessoaLocalizacao": String
-},
-"pessoa": 
-{
-"pessoaId": String,
-"nome": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato": 
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
-}
-]
+        [
+            {
+                "emprestimoId": String,
+                "dataDevolucao": String,
+                "dataEmprestimo": String,
+                "item": 
+                {
+                    "itemId": String,
+                    "titulo": String,
+                    "tipoItem": String,
+                    "isEmprestado": Boolean,
+                    "emprestimoId": String,
+                    "localizacao": 
+                    {
+                        "localizacaoId": String,
+                        "nome": String,
+                        "endereco": String,
+                        "cidade": String,
+                        "estado": String,
+                        "pais": String
+                    },
+                    "pessoaLocalizacao": String
+                },
+                "pessoa": 
+                {
+                    "pessoaId": String,
+                    "nome": String,
+                    "localizacao": 
+                    {
+                        "localizacaoId": String,
+                        "nome": String,
+                        "endereco": String,
+                        "cidade": String,
+                        "estado": String,
+                        "pais": String
+                    },
+                    "contato": 
+                    {
+                        "contatoId": String,
+                        "valor": String,
+                        "tipo": String
+                    }
+                }
+            }
+        ]
 
 ### Emprestimos [POST]
 + Endpoint: api/emprestimos
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"dataDevolucao": String,
-"dataEmprestimo": String,
-"item": 
-{
-"itemId": String,
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"pessoaLocalizacao": String
-},
-"pessoa": 
-{
-"pessoaId": String,
-"nome": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato": 
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
-}
+    + Body
+    
+            {
+                "dataDevolucao": String,
+                "dataEmprestimo": String,
+                "item": 
+                {
+                    "itemId": String,
+                    "titulo": String,
+                    "tipoItem": String,
+                    "isEmprestado": Boolean,
+                    "emprestimoId": String,
+                    "localizacao": 
+                    {
+                        "localizacaoId": String,
+                        "nome": String,
+                        "endereco": String,
+                        "cidade": String,
+                        "estado": String,
+                        "pais": String
+                    },
+                    "pessoaLocalizacao": String
+                },
+                "pessoa": 
+                {
+                    "pessoaId": String,
+                    "nome": String,
+                    "localizacao": 
+                    {
+                        "localizacaoId": String,
+                        "nome": String,
+                        "endereco": String,
+                        "cidade": String,
+                        "estado": String,
+                        "pais": String
+                    },
+                    "contato": 
+                    {
+                        "contatoId": String,
+                        "valor": String,
+                        "tipo": String
+                    }
+                }
+            }
 
 
 
 + Response 400 (application/json)
 
-{
-"dataDevolucao": String,
-"dataEmprestimo": String,
-"item": 
-{
-"itemId": String,
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"pessoaLocalizacao": String
-},
-"pessoa": 
-{
-"pessoaId": String,
-"nome": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato": 
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
-}    
+        {
+            "dataDevolucao": String,
+            "dataEmprestimo": String,
+            "item": 
+            {
+                "itemId": String,
+                "titulo": String,
+                "tipoItem": String,
+                "isEmprestado": Boolean,
+                "emprestimoId": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "pessoaLocalizacao": String
+            },
+            "pessoa": 
+            {
+                "pessoaId": String,
+                "nome": String,
+                "localizacao": 
+                {
+                    "localizacaoId": String,
+                    "nome": String,
+                    "endereco": String,
+                    "cidade": String,
+                    "estado": String,
+                    "pais": String
+                },
+                "contato": 
+                {
+                    "contatoId": String,
+                    "valor": String,
+                    "tipo": String
+                }
+            }
+        }    
+            
+    
++ Response 201 (application/json)    
+    + Headers
+    
+            url: String
 
-
-+ Response 201 (application/json)    
-+ Headers
-
-url: String
-
-+ Body
-
-{
-"emprestimoId": String,
-"dataDevolucao": String,
-"dataEmprestimo": String,
-"item": 
-{
-"itemId": String,
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"pessoaLocalizacao": String
-},
-"pessoa": 
-{
-"pessoaId": String,
-"nome": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato": 
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
-}
-
-
+    + Body
+    
+            {
+                "emprestimoId": String,
+                "dataDevolucao": String,
+                "dataEmprestimo": String,
+                "item": 
+                {
+                    "itemId": String,
+                    "titulo": String,
+                    "tipoItem": String,
+                    "isEmprestado": Boolean,
+                    "emprestimoId": String,
+                    "localizacao": 
+                    {
+                        "localizacaoId": String,
+                        "nome": String,
+                        "endereco": String,
+                        "cidade": String,
+                        "estado": String,
+                        "pais": String
+                    },
+                    "pessoaLocalizacao": String
+                },
+                "pessoa": 
+                {
+                    "pessoaId": String,
+                    "nome": String,
+                    "localizacao": 
+                    {
+                        "localizacaoId": String,
+                        "nome": String,
+                        "endereco": String,
+                        "cidade": String,
+                        "estado": String,
+                        "pais": String
+                    },
+                    "contato": 
+                    {
+                        "contatoId": String,
+                        "valor": String,
+                        "tipo": String
+                    }
+                }
+            }
+            
+ 
 ### Emprestimos [PUT]
 + Endpoint: api/emprestimos/{ID}
 
 + Request (application/json)
-+ Headers
+    + Headers
+    
+            Content-Type: "application/json"
 
-Content-Type: "application/json"
-
-+ Body
-
-{
-"emprestimoId": String,
-"dataDevolucao": String,
-"dataEmprestimo": String,
-"item": 
-{
-"itemId": String,
-"titulo": String,
-"tipoItem": String,
-"isEmprestado": Boolean,
-"emprestimoId": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"pessoaLocalizacao": String
-},
-"pessoa": 
-{
-"pessoaId": String,
-"nome": String,
-"localizacao": 
-{
-"localizacaoId": String,
-"nome": String,
-"endereco": String,
-"cidade": String,
-"estado": String,
-"pais": String
-},
-"contato": 
-{
-"contatoId": String,
-"valor": String,
-"tipo": String
-}
-}
-}
+    + Body
+    
+            {
+                "emprestimoId": String,
+                "dataDevolucao": String,
+                "dataEmprestimo": String,
+                "item": 
+                {
+                    "itemId": String,
+                    "titulo": String,
+                    "tipoItem": String,
+                    "isEmprestado": Boolean,
+                    "emprestimoId": String,
+                    "localizacao": 
+                    {
+                        "localizacaoId": String,
+                        "nome": String,
+                        "endereco": String,
+                        "cidade": String,
+                        "estado": String,
+                        "pais": String
+                    },
+                    "pessoaLocalizacao": String
+                },
+                "pessoa": 
+                {
+                    "pessoaId": String,
+                    "nome": String,
+                    "localizacao": 
+                    {
+                        "localizacaoId": String,
+                        "nome": String,
+                        "endereco": String,
+                        "cidade": String,
+                        "estado": String,
+                        "pais": String
+                    },
+                    "contato": 
+                    {
+                        "contatoId": String,
+                        "valor": String,
+                        "tipo": String
+                    }
+                }
+            }
 
 + Response 400 (application/json)
-
-no body
+    
+    no body
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 202 (application/json)
-
-no body
+    
+    no body
 
 ### Emprestimos [DELETE]
 + Endpoint: api/emprestimos/{ID}
 
 + Request (application/json)
-+ Headers
-
-Content-Type: "application/json"
+    + Headers
+    
+            Content-Type: "application/json"
 
 + Response 404 (application/json)
-
-no body
+    
+    no body
 
 + Response 200 (application/json)
 
-no body    
+    no body    Best Regards / Agradeço desde já.
