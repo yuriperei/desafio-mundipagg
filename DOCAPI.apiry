@@ -1071,4 +1071,4 @@ pessoaLocalizacao: é opcional ter algum valor. Exemplos abaixo.
 
 + Response 200 (application/json)
 
-    no body    Best Regards / Agradeço desde já.
+    no body
