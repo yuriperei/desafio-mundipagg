@@ -10,5 +10,11 @@ namespace DesafioMundiPagg.Domain.Services
         {
             return Guid.NewGuid().ToString();
         }
+
+        public static string FormatarData(DateTime data)
+        {
+            string[] campos = data.ToString().Split(' ');
+            return campos[0];
+        }
     }
 }

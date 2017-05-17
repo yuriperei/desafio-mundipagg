@@ -1,0 +1,155 @@
+﻿<div class="container-fluid">
+    <div class="page-header">
+        <h1>
+            <span>Item</span><br />
+            <small>Cadastro de item</small>
+        </h1>
+    </div>
+
+    <div class="row">
+        <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+        <form [formGroup]="meuForm" class="row" (submit)="manter($event)">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Título</label>
+                    <input formControlName="titulo"
+                           name="titulo"
+                           [(ngModel)]="item.titulo"
+                           class="form-control"
+                           autocomplete="off" readonly="{{item.itemId}}">
+                    <div *ngIf="meuForm.controls.titulo.invalid">
+                        <span *ngIf="meuForm.controls.titulo.errors.required" class="form-control alert-danger">Título obrigatório</span>
+                        <span *ngIf="meuForm.controls.titulo.errors.minlength" class="form-control alert-danger">Título deve ter no mín. 4 carecteres</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo do Item</label>
+                    <div *ngIf="!item.itemId">
+                        <select class="form-control input-sm" formControlName="tipoItem" name="tipoItem" [(ngModel)]="item.tipoItem">
+                            <option [ngValue]="0" [attr.selected]="item.tipoItem == 'Livro' ? true : null">Livro</option>
+                            <option [ngValue]="1" [attr.selected]="item.tipoItem == 'Cd' ? true : null">Cd</option>
+                            <option [ngValue]="2" [attr.selected]="item.tipoItem == 'Dvd' ? true : null">Dvd</option>
+                        </select>
+                    </div>
+                    <div *ngIf="item.itemId">
+                        <input readonly name="tipoItem" formControlName="tipoItem"
+                               value="{{item.tipoItem}}"
+                               class="form-control"
+                               autocomplete="off">
+                    </div>
+                </div>
+
+                <div *ngIf="item.itemId">
+                    <div class="form-group">
+                        <label>Emprestado</label>
+                        <input readonly
+                               value="{{item.isEmprestado ? 'Sim' : 'Não'}}"
+                               class="form-control"
+                               autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Localização</label>
+                    <div *ngIf="!item.isEmprestado">
+                        <select class="form-control input-sm" name="localizacoes" formControlName="localizacoes" [(ngModel)]="item.localizacao">
+                            <option *ngFor="let localizacao of localizacoes" [ngValue]="localizacao">{{localizacao.nome}}</option>
+                        </select>
+
+                        <div *ngIf="item.localizacao" style="margin: 15px;">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Nome da Localização</label>
+                                    <input readonly
+                                           value="{{item.localizacao.nome}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                                <div class="col-md-8">
+                                    <label>Endereço</label>
+                                    <input readonly
+                                           value="{{item.localizacao.endereco}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row" style="padding-top:10px;">
+                                <div class="col-md-5">
+                                    <label>Cidade</label>
+                                    <input readonly
+                                           value="{{item.localizacao.cidade}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Estado</label>
+                                    <input readonly
+                                           value="{{item.localizacao.estado}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>País</label>
+                                    <input readonly
+                                           value="{{item.localizacao.pais}}"
+                                           class="form-control"
+                                           autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="item.pessoaLocalizacao" style="margin: 15px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Nome da Localização</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.nome}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                        <div class="col-md-8">
+                            <label>Endereço</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.endereco}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top:10px;">
+                        <div class="col-md-5">
+                            <label>Cidade</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.cidade}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Estado</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.estado}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                        <div class="col-md-3">
+                            <label>País</label>
+                            <input readonly
+                                   value="{{item.pessoaLocalizacao.pais}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+
+                <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+                <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
+                    Salvar
+                </button>
+                <hr>
+            </div>
+        </form>
+    </div>
+
+</div>

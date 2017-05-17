@@ -4,16 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DesafioMundiPagg.Domain.Interfaces.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace DesafioMundiPagg.Domain.Services
 {
     public class ItemService : ServiceBase<Item>, IItemService
     {
-        //private readonly IItemRepository _itemRepository;
-
-        public ItemService(IItemRepository itemRepository) : base(itemRepository)
-        {
-            //_itemRepository = itemRepository;
-        }
+        public ItemService(IItemRepository itemRepository, ILogger<ItemService> logger) : base(itemRepository, logger){ }
     }
 }

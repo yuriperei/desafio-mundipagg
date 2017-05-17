@@ -1,0 +1,103 @@
+﻿<div class="container-fluid">
+    <div class="page-header">
+        <h1>
+            <span>Pessoa</span><br />
+            <small>Cadastro de pessoa</small>
+        </h1>
+    </div>
+
+    <div class="row">
+        <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+        <form [formGroup]="meuForm" class="row" (submit)="manter($event)">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input formControlName="nome"
+                           name="nome"
+                           [(ngModel)]="pessoa.nome"
+                           class="form-control"
+                           autocomplete="off" readonly="{{pessoa.pessoaId}}">
+                    <div *ngIf="meuForm.controls.nome.invalid">
+                        <span *ngIf="meuForm.controls.nome.errors.required" class="form-control alert-danger">Nome obrigatório</span>
+                        <span *ngIf="meuForm.controls.nome.errors.minlength" class="form-control alert-danger">Nome deve ter no mín. 4 carecteres</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Localização</label>
+                    <select class="form-control input-sm" name="localizacoes" formControlName="localizacoes" [(ngModel)]="pessoa.localizacao">
+                        <option *ngFor="let localizacao of localizacoes" [ngValue]="localizacao">{{localizacao.nome}}</option>
+                    </select>
+                    <div *ngIf="meuForm.controls.localizacoes.invalid">
+                        <span *ngIf="meuForm.controls.localizacoes.errors.required" class="form-control alert-danger">Escolha uma localização</span>
+                    </div>
+                </div>
+
+                <div *ngIf="pessoa.localizacao" class="form-group" style="margin: 15px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Nome da Localização</label>
+                            <input readonly
+                                   value="{{pessoa.localizacao.nome}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                        <div class="col-md-8">
+                            <label>Endereço</label>
+                            <input readonly
+                                   value="{{pessoa.localizacao.endereco}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top:10px;">
+                        <div class="col-md-5">
+                            <label>Cidade</label>
+                            <input readonly
+                                   value="{{pessoa.localizacao.cidade}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Estado</label>
+                            <input readonly
+                                   value="{{pessoa.localizacao.estado}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                        <div class="col-md-3">
+                            <label>País</label>
+                            <input readonly
+                                   value="{{pessoa.localizacao.pais}}"
+                                   class="form-control"
+                                   autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Contato</label>
+                    <div *ngIf="!pessoa.pessoaId">
+                        <select class="form-control input-sm" name="contatos" formControlName="contatos" [(ngModel)]="pessoa.contato">
+                            <option *ngFor="let contato of contatos" [ngValue]="contato">{{contato.tipo}}: {{contato.valor}}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="pessoa.pessoaId">
+                        <input readonly name="contatos" formControlName="contatos"
+                               value="{{pessoa.contato.tipo}}: {{pessoa.contato.valor}}"
+                               class="form-control"
+                               autocomplete="off">
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
+                    Salvar
+                </button>
+                <a [routerLink]="['/pessoas']" class="btn btn-primary">Voltar</a>
+                <hr>
+            </div>
+        </form>
+    </div>
+
+</div>

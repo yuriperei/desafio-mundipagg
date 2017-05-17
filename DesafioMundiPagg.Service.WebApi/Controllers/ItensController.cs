@@ -4,6 +4,10 @@ using DesafioMundiPagg.Domain.Entities;
 using DesafioMundiPagg.Application.Interfaces.AppServices;
 using DesafioMundiPagg.Domain.Interfaces.Services;
 using DesafioMundiPagg.Application.AppServices;
+using DesafioMundiPagg.Application.DTOs;
+using Microsoft.Extensions.Logging;
+using DesafioMundiPagg.Infra.CrossCutting.Logger;
+using Microsoft.AspNetCore.Cors;
 
 namespace DesafioMundiPagg.Service.WebApi.Controllers
 {
@@ -11,26 +15,38 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
     public class ItensController : Controller
     {
         private readonly IItemAppService _itemAppService;
+        private readonly ILogger _logger;
 
-        public ItensController(IItemAppService itemAppService)
+        public ItensController(IItemAppService itemAppService, ILogger<ItensController> logger)
         {
             _itemAppService = itemAppService;
+            _logger = logger;
         }
 
         // GET api/itens
         [HttpGet]
-        public IEnumerable<Item> Get()
+        public IActionResult Get()
         {
-            return _itemAppService.ObterTodos();
+            _logger.LogInformation(LoggingEvents.LISTAR, "Listando todos os itens");
+            var itens = _itemAppService.ObterTodos();
+            if(itens == null)
+            {
+                _logger.LogWarning(LoggingEvents.LISTAR_NOTFOUND, "Get() NOT FOUND");
+                return NotFound();
+            }
+
+            return new ObjectResult(itens);
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            var item = _itemAppService.ObterPorId(id);
+            _logger.LogInformation(LoggingEvents.OBTER_POR_ID, "Obter item {ID}", id);
 
+            var item = _itemAppService.ObterPorId(id);
             if (item == null)
             {
+                _logger.LogWarning(LoggingEvents.OBTER_POR_ID_NOTFOUND, "Get({ID}) NOT FOUND", id);
                 return NotFound();
             }
             return new ObjectResult(item);
@@ -38,11 +54,12 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // POST api/itens
         [HttpPost]
-        public IActionResult Post([FromBody] Item item)
+        public IActionResult Post([FromBody] ItemDTO item)
         {
             if (ModelState.IsValid)
             {
                 _itemAppService.Adicionar(item);
+                _logger.LogInformation(LoggingEvents.ADICIONA, "Item {ID} adicionado", item.ItemId);
                 string url = $"api/itens/{item.ItemId}";
                 return Created(url, item);
             }
@@ -52,18 +69,21 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
 
         // PUT api/itens/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody] Item item)
+        public IActionResult Put(string id, [FromBody] ItemDTO item)
         {
             if (item == null)
             {
                 return BadRequest();
             }
-            var contactObj = _itemAppService.ObterPorId(id);
-            if (contactObj == null)
+            var entity = _itemAppService.ObterPorId(id);
+            if (entity == null)
             {
+                _logger.LogWarning(LoggingEvents.OBTER_POR_ID_NOTFOUND, "Put({ID}) NOT FOUND", id);
                 return NotFound();
             }
+
             _itemAppService.Alterar(item);
+            _logger.LogInformation(LoggingEvents.ATUALIZAR, "Item {ID} Atualizado", id);
             return new NoContentResult();
         }
 
@@ -71,13 +91,16 @@ namespace DesafioMundiPagg.Service.WebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            var item = _itemAppService.ObterPorId(id);
-            if (item == null)
+            var entity = _itemAppService.ObterPorId(id);
+            if (entity == null)
             {
+                _logger.LogWarning(LoggingEvents.OBTER_POR_ID_NOTFOUND, "Delete({ID}) NOT FOUND", id);
                 return NotFound();
             }
             _itemAppService.Remover(id);
-            return new NoContentResult();
+            _logger.LogInformation(LoggingEvents.REMOVER, "Item {ID} Deletado", id);
+
+            return new OkResult();
         }
     }
 }

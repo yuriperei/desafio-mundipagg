@@ -17,6 +17,7 @@ using DesafioMundiPagg.Domain.Interfaces.Services;
 using DesafioMundiPagg.Application.Interfaces.AppServices;
 using DesafioMundiPagg.Application.AppServices;
 using DesafioMundiPagg.Domain.Services;
+using DesafioMundiPagg.Application.AutoMapper;
 
 namespace DesafioMundiPagg.Service.WebApi
 {
@@ -30,6 +31,8 @@ namespace DesafioMundiPagg.Service.WebApi
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            AutoMapperConfig.RegisterMappings();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -37,9 +40,18 @@ namespace DesafioMundiPagg.Service.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             // Add framework services.
             services.AddMvc().AddJsonOptions(a => a.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
-
+           
             //Registrar IoC
             StartupIoC.RegisterIoC(services);
         }
@@ -47,6 +59,16 @@ namespace DesafioMundiPagg.Service.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseCors("CorsPolicy");
+
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyHeader();
+                builder.AllowAnyMethod();
+                builder.AllowAnyOrigin();
+            }
+            );
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 

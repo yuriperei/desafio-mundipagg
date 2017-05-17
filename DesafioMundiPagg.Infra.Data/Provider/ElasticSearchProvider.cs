@@ -1,4 +1,6 @@
-﻿using ElasticsearchCRUD;
+﻿using DesafioMundiPagg.Domain.Entities;
+using DesafioMundiPagg.Infra.Data.Mappings;
+using ElasticsearchCRUD;
 using Nest;
 using System;
 
@@ -20,6 +22,14 @@ namespace DesafioMundiPagg.Infra.Data
         private void InitializerSerializerConfiguration(IElasticsearchMappingResolver elasticSearchMappingResolver)
         {
             _elasticsearchMappingResolver = elasticSearchMappingResolver;
+
+            //Mapeamento das entidades
+            _elasticsearchMappingResolver.AddElasticSearchMappingForEntityType(typeof(Contato), new ContatoSearchMapping());
+            _elasticsearchMappingResolver.AddElasticSearchMappingForEntityType(typeof(Emprestimo), new EmprestimoSearchMapping());
+            _elasticsearchMappingResolver.AddElasticSearchMappingForEntityType(typeof(Item), new ItemSearchMapping());
+            _elasticsearchMappingResolver.AddElasticSearchMappingForEntityType(typeof(Localizacao), new LocalizacaoSearchMapping());
+            _elasticsearchMappingResolver.AddElasticSearchMappingForEntityType(typeof(Pessoa), new PessoaSearchMapping());
+
             _elasticsearchSerializerConfiguration = new ElasticsearchSerializerConfiguration(_elasticsearchMappingResolver, true, false);
         }
 

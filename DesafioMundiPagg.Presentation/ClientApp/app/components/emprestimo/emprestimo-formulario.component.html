@@ -1,0 +1,83 @@
+﻿<div class="container-fluid">
+    <div class="page-header">
+        <h1>
+            <span>Emprestimo</span><br />
+            <small>Cadastro de emprestimo</small>
+        </h1>
+    </div>
+
+    <div class="row">
+        <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+        <form [formGroup]="meuForm" class="row" (submit)="manter($event)">
+            <div class="col-md-12">
+
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Data Emprestimo</label>
+                    </div>
+                    <div class="form-group" style="margin-top:-10px">
+                        <my-date-picker name="mydate" formControlName="myDate" [options]="myDatePickerOptions"
+                                        (dateChanged)="onDateEmprestimoChanged($event)"
+                                        [selDate]="emprestimo.dataEmprestimo" [placeholder]="placeholder"></my-date-picker>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Data Devolução</label>
+                    </div>
+                    <div class="form-group" style="margin-top:-10px">
+
+                        <my-date-picker name="mydate" formControlName="myDate" [options]="myDatePickerOptions"
+                                        (dateChanged)="onDateDevolucaoChanged($event)"
+                                        [selDate]="emprestimo.dataDevolucao" [placeholder]="placeholder"></my-date-picker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Item</label>
+                    <div *ngIf="!emprestimo.emprestimoId">
+                        <select class="form-control input-sm" name="itens" formControlName="itens" [(ngModel)]="emprestimo.item">
+                            <option *ngFor="let item of itens" [ngValue]="item">{{item.titulo}} / {{item.tipoItem}}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="emprestimo.emprestimoId">
+                        <input readonly name="itens" formControlName="itens"
+                               value="{{emprestimo.item.titulo}} / {{emprestimo.item.tipoItem}}"
+                               class="form-control"
+                               autocomplete="off">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Pessoa</label>
+                    <div *ngIf="emprestimo.emprestimoId">
+                        <input readonly name="pessoas" formControlName="pessoas"
+                               value="{{emprestimo.pessoa.nome}}"
+                               class="form-control"
+                               autocomplete="off">
+                    </div>
+                    <div *ngIf="!emprestimo.emprestimoId">
+                        <select class="form-control input-sm" name="pessoas" formControlName="pessoas" [(ngModel)]="emprestimo.pessoa">
+                            <option *ngFor="let pessoa of pessoas" [ngValue]="pessoa">{{pessoa.nome}}</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <a [routerLink]="['/emprestimos']" class="btn btn-primary">Voltar</a>
+                
+                    <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
+                        Salvar
+                    </button>
+                    <a *ngIf="emprestimo.emprestimoId" class="btn btn-success" (click)="alterarStatusEmprestimo(emprestimo.item, false)">
+                        Marcar como devolvido
+                    </a>
+                
+                <hr>
+            </div>
+        </form>
+    </div>
+
+</div>
